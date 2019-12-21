@@ -1,5 +1,18 @@
-# project2
-Application Requirements
+# Finance/Budgeting Application
+* A CMS for budgeting and personal finance tracking
+
+## User Story
+* AS A person who can't manage their money
+* I WANT an online resource for budgeting
+* SO THAT I can ensure I'm saving money for the future properly
+
+## Functionality:
+A web-application which allows users to:
+  * Create budget categories
+  * Add expenses to categories
+  * View your budget/expenses in several useful formats
+
+## Application Requirements
 Must use a Node and Express server
 Must be backed by a MySQL database and an ORM (not necessarily Sequelize)
 Must utilize both GET and POST routes for retrieving and adding new data
