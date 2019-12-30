@@ -1,4 +1,4 @@
-# Finance/Budgeting Application
+# Robin-Should
 * A CMS for budgeting and personal finance tracking
 
 ## User Story
