@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Import the model (user.js) to use its database functions.
 const user = require("../models/user.js");
+const category = require("../models/categories.js")
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
