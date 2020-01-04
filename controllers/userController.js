@@ -17,6 +17,26 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
+// router for displaying a page specific to the user
+router.get("/add1/:username", function(req, res) {
+  // grab the username from the URL
+  let username = req.params.username;
+  // display the input page for the specified user
+  res.render("inputPage1", username);
+});
+
+// router for displaying a page specific to the user
+router.get("/results1/:username", function(req, res) {
+  // grab the username from the URL
+  let username = req.params.username;
+  // display the input page for the specified user
+  res.render("resultsPage1", username);
+});
+
+
+
+
+
 router.post("/api/users", function(req, res) {
   // user.create(
   //   [
@@ -31,6 +51,7 @@ router.post("/api/users", function(req, res) {
   // });
 });
 
+// router for updating. Likely not needed for this project.
 router.put("/api/users/:id", function(req, res) {
   // let condition = "id = " + req.params.id;
 
