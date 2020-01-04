@@ -1,14 +1,14 @@
-var express = require("express");
+const express = require("express");
 
-var router = express.Router();
+const router = express.Router();
 
 // Import the model (user.js) to use its database functions.
-var user = require("../models/user.js");
+const user = require("../models/user.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
   // user.all(function(data) {
-  //   var hbsObject = {
+  //   let hbsObject = {
   //     users: data
   //   };
   //   console.log(hbsObject);
@@ -32,7 +32,7 @@ router.post("/api/users", function(req, res) {
 });
 
 router.put("/api/users/:id", function(req, res) {
-  // var condition = "id = " + req.params.id;
+  // let condition = "id = " + req.params.id;
 
   // console.log("condition", condition);
 
@@ -49,7 +49,7 @@ router.put("/api/users/:id", function(req, res) {
 });
 
 router.delete("/api/users/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+  let condition = "id = " + req.params.id;
 
   user.delete(condition, function(result) {
     if (result.affectedRows == 0) {
