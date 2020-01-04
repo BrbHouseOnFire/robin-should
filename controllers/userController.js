@@ -17,8 +17,9 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
+// input pages
 // router for displaying a page specific to the user
-router.get("/add1/:username", function(req, res) {
+router.get("/input/:username", function(req, res) {
   // grab the username from the URL
   let username = req.params.username;
   // display the input page for the specified user
@@ -26,29 +27,50 @@ router.get("/add1/:username", function(req, res) {
 });
 
 // router for displaying a page specific to the user
-router.get("/results1/:username", function(req, res) {
+router.get("/results/1/:username", function(req, res) {
   // grab the username from the URL
   let username = req.params.username;
-  // display the input page for the specified user
+  // display the results page for the specified user
   res.render("resultsPage1", username);
+});
+// router for displaying a page specific to the user
+router.get("/results/2/:username", function(req, res) {
+  // grab the username from the URL
+  let username = req.params.username;
+  // display the results page for the specified user
+  res.render("resultsPage2", username);
 });
 
 
+// create a new category
+router.post("/api/add/category", function(req, res) {
+  category.create(
+    [
+      "name" //, "otherColumn"
+    ], 
+    [
+      req.body.name//, req.body.otherColumn
+    ], 
+    function(result) {
+    // Send back the ID of the new quote
+    res.json({ id: result.insertId });
+  });
+});
 
 
-
-router.post("/api/users", function(req, res) {
-  // user.create(
-  //   [
-  //     "name", "sleepy"
-  //   ], 
-  //   [
-  //     req.body.name, req.body.sleepy
-  //   ], 
-  //   function(result) {
-  //   // Send back the ID of the new quote
-  //   res.json({ id: result.insertId });
-  // });
+// creates a new user.
+router.post("/api/add/user", function(req, res) {
+  user.create(
+    [
+      "username" //, "otherColumn"
+    ], 
+    [
+      req.body.username//, req.body.otherColumn
+    ], 
+    function(result) {
+    // Send back the ID of the new quote
+    res.json({ id: result.insertId });
+  });
 });
 
 // router for updating. Likely not needed for this project.
@@ -69,6 +91,7 @@ router.put("/api/users/:id", function(req, res) {
   // });
 });
 
+// delete a user by ID, probably not needed.
 router.delete("/api/users/:id", function(req, res) {
   let condition = "id = " + req.params.id;
 
