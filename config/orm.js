@@ -1,3 +1,4 @@
+// Controller takes route requests, calls functions within the models, which utilize SQL commands from the ORM.
 // Import MySQL connection.
 const connection = require("./connection.js");
 

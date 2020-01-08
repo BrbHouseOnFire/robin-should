@@ -1,3 +1,4 @@
+// Controller takes route requests, calls functions within the models, which utilize SQL commands from the ORM.
 const express = require("express");
 
 const router = express.Router();
@@ -17,7 +18,7 @@ router.get("/", function(req, res) {
   //   console.log(hbsObject);
   //   res.render("index", hbsObject);
   // });
-  res.render("index");
+  res.render("index"/*, sqlData1, sqlData2, etc */);
 });
 
 // navigating input pages
