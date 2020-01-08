@@ -26,3 +26,51 @@
   font-family: "Montserrat", sans-serif;
   size: 55%;
 }
+
+.bg-green-1 {
+  background-color: #c8f4de;
+}
+
+.bg-green-2 {
+  background-color: #a4e5d9;
+}
+
+.bg-green-3 {
+  background-color: #66c6ba;
+}
+
+.bg-green-4 {
+  background-color: #649dad;
+}
+
+.bg-green-5 {
+  background-color: #e6f8f6;
+}
+
+.bg-green-6 {
+  background-color: #a0f6d2;
+}
+
+.bg-green-7 {
+  background-color: #72dfd0;
+}
+
+.bg-green-8 {
+  background-color: #03414d;
+}
+
+.height-auto {
+  height: 48vw;
+}
+
+.font-heebo {
+  font-family: 'Heebo', sans-serif;
+}
+
+.f-color-8 {
+  color: #03414d;
+}
+
+.border-color-8 {
+  border-color: #03414d;
+}
