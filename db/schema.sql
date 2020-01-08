@@ -1,5 +1,10 @@
 CREATE DATABASE robin_db;
 USE robin_db;
+CREATE TABLE users (
+  id int NOT NULL AUTO_INCREMENT,
+  username varchar (255) NOT NULL,
+  PRIMARY KEY (id)
+);
 CREATE TABLE expenses_budgeted (
   id int NOT NULL AUTO_INCREMENT,
   user varchar (255) NOT NULL,
