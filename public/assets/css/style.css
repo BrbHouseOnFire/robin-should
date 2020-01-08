@@ -9,7 +9,6 @@ ul {
   flex-direction: column;
   justify-content: center; */
   padding: 0px;
-
 }
 li {
   color: black;
@@ -19,7 +18,7 @@ li {
   background: #c9c9c9;
   border-radius: calc(1vh + 1vw);
   width: 100%;
-	box-shadow: 3px 3px gray;
+  box-shadow: 3px 3px gray;
   /* margin: auto; */
 }
 h1 {
@@ -27,7 +26,7 @@ h1 {
   padding: 1vh 1vw;
   margin: 3vh 3vw;
   background: #c9c9c9;
-	border-radius: calc(1vh + 1vw);
+  border-radius: calc(1vh + 1vw);
 }
 .listWrapper {
   text-align: center;
@@ -51,23 +50,23 @@ h1 {
   justify-content: space-evenly;
   margin: 3vh 3vw;
   background: #c9c9c9;
-	border-radius: calc(1vh + 1vw);
+  border-radius: calc(1vh + 1vw);
 }
 .nonEaten {
   margin: 1vh 1vw;
   background: #0f0096;
   color: white;
   padding: 1vh 2vw;
-	border-radius: calc(1vh + 1vw);
-	box-shadow: 3px 3px gray;
+  border-radius: calc(1vh + 1vw);
+  box-shadow: 3px 3px gray;
 }
 .eaten {
   margin: 1vh 1vw;
   background: #0f0096;
   color: white;
   padding: 1vh 2vw;
-	border-radius: calc(1vh + 1vw);
-	box-shadow: 3px 3px gray;
+  border-radius: calc(1vh + 1vw);
+  box-shadow: 3px 3px gray;
 }
 .addBurgerContainer {
   display: flex;
@@ -75,5 +74,33 @@ h1 {
   margin: 3vh 3vw;
   padding-bottom: 3vh;
   background: #c9c9c9;
-	border-radius: calc(1vh + 1vw);
+  border-radius: calc(1vh + 1vw);
+}
+
+.bg {
+  background-image: linear-gradient(#66c6ba, #a4e5d9);
+  width: 100%;
+}
+
+.button-border {
+  border-color: #03414d;
+}
+
+.button-border:hover {
+  border-color: #649dad;
+}
+
+.font {
+  color: #03414d;
+  size: 25%;
+}
+
+.font:hover {
+  color: #649dad;
+}
+
+.robin-should {
+  color: #03414d;
+  font-family: "Nunito", sans-serif;
+  size: 45%;
 }
