@@ -1,4 +1,29 @@
-// Controller takes route requests, calls functions within the models, which utilize SQL commands from the ORM.
+// Controller takes route requests, 
+// calls functions within the models, 
+// which utilize SQL commands from the ORM.
+
+
+
+// PROCESS FLOW FOR A BRAND NEW USER
+// LANDING PAGE -> Add New User button (moves directly to 'Set Budget' page). (Pulls username from form, calls function which makes Get request with :username)
+// Moves to SET BUDGET PAGE
+// SET BUDGET CATEGORIES PAGE -> (sql pull existing categories)
+//    - Section 1: allows user to create categories (sql insert) or view pre-existing categories. (CANNOT DELETE CATEGORIES FROM DATABASE. THIS WOULD BE SCARY AND HARD DOWN THE WATERFALL.)
+//      - allows user to select categories from the list of created/pre-existing categories to ADD them to section 2.
+//    - Section 2: List of ADDed categories for the user's budget. Can hit 'Remove' on each category.
+//    -> Click 'Submit' button (sql update/insert and move to new page) or 'Return to Homepage' button.
+// SET BUDGET AMOUNTS PAGE -> (pull existing budget)
+//    - Can add $ amount to the categories or edit the $ amount on chosen categories.
+//    -> Click 'Submit' button (sql update/insert) or 'Go Back' button.
+// VIEW/SUBMIT EXPENSES PAGE -> 
+//    - Section 1: Form to add an expense with a dropdown for categories in their current budget.
+//    -> Section 1.5: Click 'Submit' Button (sql update/insert) or 'Go Back' button.
+//    - Section 2: A list of expenses (Future enhancement: only those associated with their current budget). Each have a delete button.
+//    (Future Enhancement) - Section 3: A list of expenses NOT associated with a budget category. Each have a delete button. (IE: You used this category previously, but removed it from your budget.)
+// After submission, moves to the sexy viewing pages where you can see all your lack of money and how you're broke as heyyyyllll.
+// SEXY VIEWING PAGES: Nothing to click except maybe: 'Go to next page' or 'go back' or a special nav to switch between pages.
+
+
 const express = require("express");
 
 const router = express.Router();
@@ -8,7 +33,6 @@ const user = require("../models/user.js");
 const category = require("../models/categories.js")
 
 // Create all our routes and set up logic within those routes where required.
-
 // default landing page
 router.get("/", function(req, res) {
   // user.all(function(data) {
@@ -21,7 +45,6 @@ router.get("/", function(req, res) {
   res.render("index"/*, sqlData1, sqlData2, etc */);
 });
 
-// navigating input pages
 // router for displaying a page specific to the user
 router.get("/input/:username", function(req, res) {
   // grab the username from the URL
