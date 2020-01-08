@@ -1,28 +1,24 @@
-    <section class="bg h-screen">    
-        <!-- ICON IN THE TOP LEFT CORNER -->
-            <div class="">[icon here]</div>
+<section class="bg h-screen">
+    <!-- ICON IN THE TOP LEFT CORNER -->
+    <div class="">[icon here]</div>
 
-        <!-- CENTERED TEXT FOR TITLE-->
-            <div class="text-center pt-48 text-6xl font-heebo f-color-8 pb-4">
-                Whose Planning?
-            </div>
+    <!-- CENTERED TEXT FOR TITLE-->
+    <div class="text-center pt-48 text-6xl font-heebo f-color-8 pb-4">
+        Whose Planning?
+    </div>
 
-        <!-- CONTAINER FOR THE PROFILES TO APPEAR IN -->
-            <div class="flex flex-none flex-row content-center justify-center pl-64 pr-64">
-                <!-- LOCATION FOR USERS TO SELECT THEIR PROFILE -->
-                <!-- INSERT JQUERY/HANDLEBARS LOGIC HERE TO DYNAMICALLY BUILD THE PROFILES AND PULL ALREADY MADE PRFILES -->
-                <button class="w-56 h-64 bg-green-7 ml-4 mr-4 border-solid border-4 border-color-8">
-                    bobby
-                </button>
-                <button class="w-56 h-64 bg-green-7 ml-4 mr-4 border-solid border-4 border-color-8">
-                    joanna
-                </button>
-                <button class="w-56 h-64 bg-green-7 ml-4 mr-4 border-solid border-4 border-color-8">
-                    drew
-                </button>
-                <button class="w-56 h-64 bg-green-7 ml-4 mr-4 border-solid border-4 border-color-8">
-                    gabe
-                </button>
-            </div>
-        <!-- ICON FOR ADDING A NEW PROFILE -->
-    </section>
+    <!-- CONTAINER FOR THE PROFILES TO APPEAR IN -->
+    <div class="flex flex-none flex-row content-center justify-center pl-64 pr-64">
+        <!-- LOCATION FOR USERS TO SELECT THEIR PROFILE -->
+        <!-- INSERT JQUERY/HANDLEBARS LOGIC HERE TO DYNAMICALLY BUILD THE PROFILES AND PULL ALREADY MADE PRFILES -->
+        {{#each user}}
+        <button class="w-56 h-64 bg-green-7 ml-4 mr-4 border-solid border-4 border-color-8">
+
+            {{username}}
+
+        </button>
+        {{/each}}
+
+    </div>
+    <!-- ICON FOR ADDING A NEW PROFILE -->
+</section>
