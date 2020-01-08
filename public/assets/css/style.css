@@ -64,7 +64,7 @@
 }
 
 .font-heebo {
-  font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 .f-color-8 {
@@ -73,4 +73,73 @@
 
 .border-color-8 {
   border-color: #03414d;
+}
+
+.bg {
+  background-image: linear-gradient(#649dad, #a4e5d9);
+  width: 100%;
+}
+
+.bg-two {
+  background-color: #03414d;
+  width: 100%;
+}
+
+.bg-green-7 {
+  background-color: #649dad;
+  height: 90vh;
+}
+
+.button-border:hover {
+  border-color: #649dad;
+}
+
+.button-border2:hover {
+  border: solid 1px;
+  border-color: #878e96;
+}
+
+.font {
+  color: #03414d;
+  font-family: "Montserrat", sans-serif;
+  size: 25%;
+}
+
+.font-two {
+  color: #e6f8f6;
+  font-family: "Montserrat", sans-serif;
+  size: 25%;
+}
+
+.font:hover {
+  color: #649dad;
+}
+
+.navbar {
+  height: 10vh;
+  background-color: #012e36;
+}
+
+.navbar-font {
+  color: #a4e5d9;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.robin-should {
+  color: #03414d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.robin-should-two {
+  color: #e6f8f6;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.welcome-font {
+  color: #e6f8f6;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
 }
