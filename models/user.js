@@ -23,6 +23,20 @@ let user = {
     orm.delete("users", condition, function(res) {
       cb(res);
     });
+  },
+  // grab all categories from expenses_budgeted for the user
+  budget: function(username, cb) {
+    orm.selectWhere("expenses_budgeted", "user", username, function(res) {
+      cb(res);
+    });
+  },
+  // delete a budget category for the user
+  deleteBudgetCategory: function(user, categoryid, cb) {
+    // the condition passed in should be string for the actual condition
+    let condition = 'where user = ' + user + 'and category_id = ' + categoryid;
+    orm.delete("expenses_budgeted", condition, function(res) {
+      cb(res);
+    });
   }
 };
 

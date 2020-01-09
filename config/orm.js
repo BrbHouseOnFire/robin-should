@@ -101,7 +101,25 @@ var orm = {
 
       cb(result);
     });
-  }
+  },
+  // userAll: function(table, user, condition, cb) {
+  //   let queryString = "SELECT * FROM " + table + " where ?;";
+  //   connection.query(queryString, function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     cb(result);
+  //   });
+  // },
+  selectWhere: function(tableInput, colToSearch, valOfCol) {
+    return new Promise ((resolve, reject) => {
+      var queryString = "SELECT * FROM ?? WHERE ?? = ?";
+      connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
+        if (err) throw err;
+        resolve(result);
+      });
+    });
+  },
 };
 
 // Export the orm object for the model (burger.js).

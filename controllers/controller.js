@@ -42,32 +42,54 @@ router.get("/", function (req, res) {
     console.log(hbsObject);
     res.render("index", hbsObject);
   });
-
 });
 
-// router for displaying a page specific to the user
-router.get("/input/:username", function (req, res) {
-  // grab the username from the URL
-  let username = req.params.username;
-  // display the input page for the specified user
-  res.render("inputPage1", username);
+// SET BUDGET CATEGORIES PAGE
+router.get("/set/budget/1", (req, res) => {
+  // pull all current budget categories
+  category.all((data) => {
+    let object = {
+      category: data
+    };
+    console.log(object);
+    // render page with passed in budget categories
+    res.render("/", object);
+  });
+});
+// SET BUDGET AMOUNTS PAGE
+router.get("/set/budget/2", (req, res) => {
+  // pull all current budget categories
+  category.all((data) => {
+    let object = {
+      category: data
+    };
+    console.log(object);
+    // render page with passed in budget categories
+    res.render("/", object);
+  });
 });
 
-// router for displaying a page specific to the user
-router.get("/results/1/:username", function (req, res) {
-  // grab the username from the URL
-  let username = req.params.username;
-  // display the results page for the specified user
-  res.render("resultsPage1", username);
-});
-// router for displaying a page specific to the user
-router.get("/results/2/:username", function (req, res) {
-  // grab the username from the URL
-  let username = req.params.username;
-  // display the results page for the specified user
-  res.render("resultsPage2", username);
+// VIEW/SUBMIT EXPENSES PAGE
+router.get("/set/budget/2", (req, res) => {
+  // pull all current budget categories
+  category.all((data) => {
+    let categoryObject = {
+      category: data
+    };
+    console.log(categoryObject);
+    expenses.all((data) => {
+      let expenseObject = {
+        expense: data
+      };
+      console.log(expenseObject);
+      // render page with passed in budget categories and expenses
+      res.render("/", object);
+
+    })
+  });
 });
 
+// SEXY RESULT PAGES
 
 // create a new category
 router.post("/api/add/category", function (req, res) {
@@ -100,7 +122,34 @@ router.post("/api/add/user", function (req, res) {
     });
 });
 
-// router for updating. Likely not needed for this project.
+// router for displaying a page specific to the user
+router.get("/input/:username", function (req, res) {
+  // grab the username from the URL
+  let username = req.params.username;
+  // display the input page for the specified user
+  res.render("inputPage1", username);
+});
+
+// router for displaying a page specific to the user
+router.get("/results/1/:username", function (req, res) {
+  // grab the username from the URL
+  let username = req.params.username;
+  // display the results page for the specified user
+  res.render("resultsPage1", username);
+});
+// router for displaying a page specific to the user
+router.get("/results/2/:username", function (req, res) {
+  // grab the username from the URL
+  let username = req.params.username;
+  // display the results page for the specified user
+  res.render("resultsPage2", username);
+});
+
+
+
+
+
+// router for updating a user. Likely not needed for this project.
 router.put("/api/users/:id", function (req, res) {
   // let condition = "id = " + req.params.id;
 
@@ -117,7 +166,6 @@ router.put("/api/users/:id", function (req, res) {
   //   }
   // });
 });
-
 // delete a user by ID, probably not needed.
 router.delete("/api/users/:id", function (req, res) {
   let condition = "id = " + req.params.id;
