@@ -1,14 +1,60 @@
 .bg {
-  background-image: linear-gradient(#649dad, #a4e5d9);
-  width: 100%;
+  background-image: url('../img/background1.jpeg');
+  height: 100vh;
+  background-size: cover;
 }
 
-.button-border {
-  border-color: #03414d;
+.landing-box {
+width: 58vh;
+height: 80vh;
+background-color: white;
+opacity: 90%;
+border-radius: 25px;
 }
 
-.button-border:hover {
-  border-color: #649dad;
+.profButtons {
+width: 30vh;
+height: 4vh;
+border-radius: 20px;
+background-color: #66c6ba;
+}
+
+.text1 {
+font-size: 5vh;
+}
+
+.text2 {
+font-size: 2vh;
+}
+
+.text3 {
+font-size: 3vh;
+}
+
+input[type=text] {
+width: 100%;
+height: 3.5;
+box-sizing: border-box;
+border: 2px solid #e2e8f0;
+border-radius: 2px;
+}
+
+input[type=text]:focus {
+background-color: #c8f4de;
+border: 2px solid #649dad;
+}
+
+.profileButton {
+  background-color: #649dad;
+  color: white;
+  width: 35vh;
+  height: 4vh;
+  border-radius: 15px;
+
+}
+
+.profileButton:hover {
+  border: 3px solid #03414d;
 }
 
 .font {
@@ -64,7 +110,7 @@
 }
 
 .font-heebo {
-  font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 .f-color-8 {
@@ -73,4 +119,68 @@
 
 .border-color-8 {
   border-color: #03414d;
+}
+
+.bg-two {
+  background-color: #03414d;
+  width: 100%;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+
+.button-border:hover {
+  border-color: #649dad;
+}
+
+.button-border2:hover {
+  border: solid 1px;
+  border-color: #878e96;
+}
+
+.font {
+  color: #03414d;
+  font-family: "Montserrat", sans-serif;
+  size: 25%;
+}
+
+.font-two {
+  color: #e6f8f6;
+  font-family: "Montserrat", sans-serif;
+  size: 25%;
+}
+
+.font:hover {
+  color: #649dad;
+}
+
+.navbar {
+  height: 10vh;
+  background-color: #012e36;
+}
+
+.navbar-font {
+  color: #a4e5d9;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.robin-should {
+  color: #03414d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.robin-should-two {
+  color: #e6f8f6;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.welcome-font {
+  color: #e6f8f6;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
 }
