@@ -34,19 +34,19 @@ const category = require("../models/categories.js")
 
 // Create all our routes and set up logic within those routes where required.
 // default landing page
-router.get("/", function(req, res) {
-  // user.all(function(data) {
-  //   let hbsObject = {
-  //     users: data
-  //   };
-  //   console.log(hbsObject);
-  //   res.render("index", hbsObject);
-  // });
-  res.render("index"/*, sqlData1, sqlData2, etc */);
+router.get("/", function (req, res) {
+  user.all(function (data) {
+    let hbsObject = {
+      user: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
+  });
+
 });
 
 // router for displaying a page specific to the user
-router.get("/input/:username", function(req, res) {
+router.get("/input/:username", function (req, res) {
   // grab the username from the URL
   let username = req.params.username;
   // display the input page for the specified user
@@ -54,14 +54,14 @@ router.get("/input/:username", function(req, res) {
 });
 
 // router for displaying a page specific to the user
-router.get("/results/1/:username", function(req, res) {
+router.get("/results/1/:username", function (req, res) {
   // grab the username from the URL
   let username = req.params.username;
   // display the results page for the specified user
   res.render("resultsPage1", username);
 });
 // router for displaying a page specific to the user
-router.get("/results/2/:username", function(req, res) {
+router.get("/results/2/:username", function (req, res) {
   // grab the username from the URL
   let username = req.params.username;
   // display the results page for the specified user
@@ -70,38 +70,38 @@ router.get("/results/2/:username", function(req, res) {
 
 
 // create a new category
-router.post("/api/add/category", function(req, res) {
+router.post("/api/add/category", function (req, res) {
   category.create(
     [
       "name" //, "otherColumn"
-    ], 
+    ],
     [
       req.body.name//, req.body.otherColumn
-    ], 
-    function(result) {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
+    ],
+    function (result) {
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    });
 });
 
 
 // creates a new user.
-router.post("/api/add/user", function(req, res) {
+router.post("/api/add/user", function (req, res) {
   user.create(
     [
       "username" //, "otherColumn"
-    ], 
+    ],
     [
       req.body.username//, req.body.otherColumn
-    ], 
-    function(result) {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
+    ],
+    function (result) {
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    });
 });
 
 // router for updating. Likely not needed for this project.
-router.put("/api/users/:id", function(req, res) {
+router.put("/api/users/:id", function (req, res) {
   // let condition = "id = " + req.params.id;
 
   // console.log("condition", condition);
@@ -119,10 +119,10 @@ router.put("/api/users/:id", function(req, res) {
 });
 
 // delete a user by ID, probably not needed.
-router.delete("/api/users/:id", function(req, res) {
+router.delete("/api/users/:id", function (req, res) {
   let condition = "id = " + req.params.id;
 
-  user.delete(condition, function(result) {
+  user.delete(condition, function (result) {
     if (result.affectedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
