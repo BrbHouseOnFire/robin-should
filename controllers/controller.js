@@ -30,7 +30,8 @@ const router = express.Router();
 
 // Import the models to use their database functions.
 const user = require("../models/user.js");
-const category = require("../models/categories.js")
+const category = require("../models/categories.js");
+const expense = require("../models/expenses.js");
 
 // Create all our routes and set up logic within those routes where required.
 // default landing page
@@ -68,7 +69,6 @@ router.get("/set/budget/2", (req, res) => {
     res.render("/", object);
   });
 });
-
 // VIEW/SUBMIT EXPENSES PAGE
 router.get("/set/budget/2", (req, res) => {
   // pull all current budget categories
@@ -88,7 +88,6 @@ router.get("/set/budget/2", (req, res) => {
     })
   });
 });
-
 // SEXY RESULT PAGES
 
 // create a new category
@@ -117,7 +116,7 @@ router.post("/api/add/user", function (req, res) {
       req.body.username//, req.body.otherColumn
     ],
     function (result) {
-      // Send back the ID of the new quote
+      // Send back the ID of the new user
       res.json({ id: result.insertId });
     });
 });
@@ -146,17 +145,16 @@ router.get("/results/2/:username", function (req, res) {
 });
 
 
-// a junk router for testing purposes
+// a mock router for testing purposes
 router.get("/api/test/:valueone/:valuetwo/:valuethree", (req, res) => {
-  let val1 = req.params.value;
+  let val1 = req.params.valueone;
   let val2 = req.params.valuetwo;
   let val3 = req.params.valuethree;
   console.log(val1);
   console.log(val2);
   console.log(val3);
   expense.all((data) => {
-    console.log(data);
-    // res.json({})
+    return res.json(data);
   });
 });
 
