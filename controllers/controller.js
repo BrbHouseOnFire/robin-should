@@ -46,7 +46,7 @@ router.get("/", function (req, res) {
 });
 
 // SET BUDGET CATEGORIES PAGE
-router.get("/set/budget/1", (req, res) => {
+router.get("/budget/set/1", (req, res) => {
   // pull all current budget categories
   category.all((data) => {
     let object = {
@@ -58,7 +58,7 @@ router.get("/set/budget/1", (req, res) => {
   });
 });
 // SET BUDGET AMOUNTS PAGE
-router.get("/set/budget/2", (req, res) => {
+router.get("/budget/set/2", (req, res) => {
   // pull all current budget categories
   category.all((data) => {
     let object = {
@@ -70,7 +70,7 @@ router.get("/set/budget/2", (req, res) => {
   });
 });
 // VIEW/SUBMIT EXPENSES PAGE
-router.get("/set/budget/2", (req, res) => {
+router.get("/budget/expenses", (req, res) => {
   // pull all current budget categories
   category.all((data) => {
     let categoryObject = {

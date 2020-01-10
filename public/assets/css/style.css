@@ -17,6 +17,7 @@ width: 30vh;
 height: 4vh;
 border-radius: 20px;
 background-color: #66c6ba;
+color: white;
 }
 
 
@@ -56,6 +57,10 @@ border: 2px solid #649dad;
 }
 
 .profileButton:hover {
+  border: 3px solid #03414d;
+}
+
+.profButtons:hover {
   border: 3px solid #03414d;
 }
 
