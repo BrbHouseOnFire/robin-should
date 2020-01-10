@@ -46,8 +46,9 @@ router.get("/", function (req, res) {
 });
 
 // SET BUDGET CATEGORIES PAGE
-router.get("/budget/set/1", (req, res) => {
+router.get("/budget/set/1/:username", (req, res) => {
   // pull all current budget categories
+  let username = req.params.username;
   category.all((data) => {
     let object = {
       category: data
@@ -89,6 +90,7 @@ router.get("/budget/expenses", (req, res) => {
   });
 });
 // SEXY RESULT PAGES
+router.get("")
 
 // create a new category
 router.post("/api/add/category", function (req, res) {
@@ -121,28 +123,28 @@ router.post("/api/add/user", function (req, res) {
     });
 });
 
-// router for displaying a page specific to the user
-router.get("/input/:username", function (req, res) {
-  // grab the username from the URL
-  let username = req.params.username;
-  // display the input page for the specified user
-  res.render("inputPage1", username);
-});
+// // router for displaying a page specific to the user
+// router.get("/input/:username", function (req, res) {
+//   // grab the username from the URL
+//   let username = req.params.username;
+//   // display the input page for the specified user
+//   res.render("inputPage1", username);
+// });
 
-// router for displaying a page specific to the user
-router.get("/results/1/:username", function (req, res) {
-  // grab the username from the URL
-  let username = req.params.username;
-  // display the results page for the specified user
-  res.render("resultsPage1", username);
-});
-// router for displaying a page specific to the user
-router.get("/results/2/:username", function (req, res) {
-  // grab the username from the URL
-  let username = req.params.username;
-  // display the results page for the specified user
-  res.render("resultsPage2", username);
-});
+// // router for displaying a page specific to the user
+// router.get("/results/1/:username", function (req, res) {
+//   // grab the username from the URL
+//   let username = req.params.username;
+//   // display the results page for the specified user
+//   res.render("resultsPage1", username);
+// });
+// // router for displaying a page specific to the user
+// router.get("/results/2/:username", function (req, res) {
+//   // grab the username from the URL
+//   let username = req.params.username;
+//   // display the results page for the specified user
+//   res.render("resultsPage2", username);
+// });
 
 
 // a mock router for testing purposes
@@ -154,6 +156,12 @@ router.get("/api/test/:valueone/:valuetwo/:valuethree", (req, res) => {
   console.log(val2);
   console.log(val3);
   expense.all((data) => {
+    return res.json(data);
+  });
+});
+// api route to pull list of users
+router.get("/api/users", (req, res) => {
+  user.all((data) => {
     return res.json(data);
   });
 });
