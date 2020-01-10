@@ -146,7 +146,19 @@ router.get("/results/2/:username", function (req, res) {
 });
 
 
-
+// a junk router for testing purposes
+router.get("/api/test/:valueone/:valuetwo/:valuethree", (req, res) => {
+  let val1 = req.params.value;
+  let val2 = req.params.valuetwo;
+  let val3 = req.params.valuethree;
+  console.log(val1);
+  console.log(val2);
+  console.log(val3);
+  expense.all((data) => {
+    console.log(data);
+    // res.json({})
+  });
+});
 
 
 // router for updating a user. Likely not needed for this project.
