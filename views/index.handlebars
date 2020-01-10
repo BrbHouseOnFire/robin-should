@@ -52,24 +52,16 @@
                     </div>
 
                     <!-- CONTAINER FLEX BOX TO HOLD USERS -->
-                    <div class="text2 text-heebo pl-8 pr-8 pt-4 "> 
+                    <div class="text-heebo pl-8 pr-8 pt-4 "> 
 
                         <!-- BUTTONS TO PROFILES REPLACE WITH HANDLEBARS LOOPING BASED ON DATABASE -->
-                        <button class="profButtons text2 text-heebo mt-2 mb-2">
-                            Bobby
-                        </button>
-                        <button class="profButtons text2 text-heebo mt-2 mb-2">
-                            Gabe
-                        </button>
-                        <button class="profButtons text2 text-heebo mt-2 mb-2">
-                            Joanna
-                        </button>
-                        <button class="profButtons text2 text-heebo mt-2 mb-2">
-                            Drew
-                        </button>
-                        
+                        {{#each user}}
+                            <button class="profButtons text-heebo text-heebo mt-2 mb-2">
+                                {{username}}
+                            </button>    
+                        {{/each}}
+                                            
                     </div>
                 </div>
             </div>
-
     </section>
