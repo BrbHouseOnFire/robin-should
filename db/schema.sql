@@ -8,7 +8,7 @@ CREATE TABLE users (
 CREATE TABLE expenses_budgeted (
   id int NOT NULL AUTO_INCREMENT,
   user varchar (255) NOT NULL,
-  amount DECIMAL (63, 2) NOT NULL,
+  amount DECIMAL (63, 2) NOT NULL DEFAULT '0.00',
   category_id int NOT NULL,
   creation_time DATETIME DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
