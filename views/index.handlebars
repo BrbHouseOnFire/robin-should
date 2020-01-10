@@ -30,15 +30,15 @@
             <!-- DIVIDE LINE IN PROFILE BOX -->
             <div class="pt-2 border-b-2 border-gray-300 border-solid ml-4 mr-4"></div>
 
-                    <!-- FORMS FOR NEW USERS IN PROFILE BOX -->
-                    <div class="text-heebo pl-8 pr-8 pt-2">
-                        <form class="pt-2">
-                            Username: <input type="text" id="userName"></input>
-                        </form>
+            <!-- FORMS FOR NEW USERS IN PROFILE BOX -->
+            <div class="text-heebo pl-8 pr-8 pt-2">
+                <form class="pt-2">
+                    Username: <input type="text" id="userName"></input>
+                </form>
 
-                        <form class="pt-2 pb-5">
-                            Monthly Income: <input type="text" id="monthlyIncome"></input>
-                        </form>
+                <form class="pt-2 pb-5">
+                    Monthly Income: <input type="text" id="monthlyIncome"></input>
+                </form>
 
                 <button id="createProfile" class="profileButton">Create my profile</button>
             </div>
@@ -51,31 +51,31 @@
                 Choose an existing profile
             </div>
 
-                    <!-- CONTAINER FLEX BOX TO HOLD USERS -->
-                    <div class="text-heebo pl-8 pr-8 pt-4 "> 
+            <!-- CONTAINER FLEX BOX TO HOLD USERS -->
+            <div class="text-heebo pl-8 pr-8 pt-4 ">
 
-                        <!-- BUTTONS TO PROFILES REPLACE WITH HANDLEBARS LOOPING BASED ON DATABASE -->
-                        {{#each user}}
-                            <button class="profButtons text-heebo text-heebo mt-2 mb-2">
-                                {{username}}
-                            </button>    
-                        {{/each}}
-                                            
-                    </div>
-                </div>
+                <!-- BUTTONS TO PROFILES REPLACE WITH HANDLEBARS LOOPING BASED ON DATABASE -->
+                {{#each user}}
+                <button class="profButtons text-heebo text-heebo mt-2 mb-2">
+                    {{username}}
+                </button>
+                {{/each}}
+
             </div>
-    </section>
-    
-    
+        </div>
+    </div>
+</section>
+
+
 <script>
-    let profileName = document.getElementById('firstName');
-    let profileIncome = document.getElementById('lastName');
+    let profileName = document.getElementById('userName');
+    let profileIncome = document.getElementById('monthlyIncome');
     let profile = document.getElementById('createProfile');
     profile.addEventListener('click', function () {
         alert(profileName.value + profileIncome.value);
         console.log(profileName.value);
     });
-    
+
 
 
 </script>
