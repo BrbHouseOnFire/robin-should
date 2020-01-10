@@ -50,12 +50,14 @@ router.get("/budget/set/1/:username", (req, res) => {
   // pull all current budget categories
   let username = req.params.username;
   category.all((data) => {
-    let object = {
+    let categoryObj = {
       category: data
     };
-    console.log(object);
+    categoryObj.personName = username;
+    console.log("/budget/set/1/:username");
+    console.log(categoryObj);
     // render page with passed in budget categories
-    res.render("budgetpage1", object);
+    res.render("budgetpage1", categoryObj);
   });
 });
 // SET BUDGET AMOUNTS PAGE
@@ -103,6 +105,26 @@ router.post("/api/add/category", function (req, res) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
     });
+});
+
+router.post("/api/add/expenses", function (req, res) {
+
+  // Add new user expenses
+  expense.create(
+
+  );
+  /*
+  category.create(
+    [
+      "name" //, "otherColumn"
+    ],
+    [
+      req.body.name//, req.body.otherColumn
+    ],
+    function (result) {
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    });*/
 });
 
 
