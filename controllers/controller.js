@@ -55,7 +55,7 @@ router.get("/budget/set/1/:username", (req, res) => {
     };
     console.log(object);
     // render page with passed in budget categories
-    res.render("/", object);
+    res.render("budgetpage1", object);
   });
 });
 // SET BUDGET AMOUNTS PAGE
@@ -78,14 +78,12 @@ router.get("/budget/expenses", (req, res) => {
       category: data
     };
     console.log(categoryObject);
-    expenses.all((data) => {
+    expense.all((data) => {
       let expenseObject = {
         expense: data
       };
-      console.log(expenseObject);
       // render page with passed in budget categories and expenses
-      res.render("/", object);
-
+      res.render("budgetpage1", expenseObject);
     })
   });
 });
@@ -110,12 +108,14 @@ router.post("/api/add/category", function (req, res) {
 
 // creates a new user.
 router.post("/api/add/user", function (req, res) {
+  console.log("/api/add/user");
+  console.log(req.body);
   user.create(
     [
       "username" //, "otherColumn"
     ],
     [
-      req.body.username//, req.body.otherColumn
+      req.body.userName//, req.body.otherColumn
     ],
     function (result) {
       // Send back the ID of the new user

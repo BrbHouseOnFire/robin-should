@@ -1,62 +1,45 @@
 // Functions for On-clicks, routes, and page info linked from the main handlebar.
 
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(function() {
-   $(".change-sleep").on("click", function(event) {
-    var id = $(this).data("id");
-    var newSleep = $(this).data("newsleep");
+$(function () {
 
-  //   var newSleepState = {
-  //     sleepy: newSleep
-  //   };
+  let profileName = document.getElementById('userName');
+  let profileIncome = document.getElementById('monthlyIncome');
+  let profile = document.getElementById('createProfile');
+  document.body.addEventListener('click', function (evt) {
+    if (evt.target.className === 'profButtons text-heebo text-heebo mt-2 mb-2') {
+      alert()
+    }
+  }, false);
+  profile.addEventListener('click', function () {
+    alert(profileName.value + profileIncome.value);
+    console.log(profileName.value);
 
-  //   // Send the PUT request.
-  //   $.ajax("/api/burgers/" + id, {
-  //     type: "PUT",
-  //     data: newSleepState
-  //   }).then(
-  //     function() {
-  //       console.log("changed sleep to", newSleep);
-  //       // Reload the page to get the updated list
-  //       location.reload();
-  //     }
-  //   );
-  // });
+  });
 
-  // $(".create-form").on("submit", function(event) {
-  //   // Make sure to preventDefault on a submit event.
-  //   event.preventDefault();
+  $("#createProfile").click(function () {
+    console.log("Create Profile");
 
-  //   var newburger = {
-  //     name: $("#ca").val().trim(),
-  //     sleepy: 0
-  //   };
+    var user = $("#userName").val();
+    var data = { userName: user };
+    var jsonData = JSON.stringify(data);
+    $.ajax({
 
-  //   // Send the POST request.
-  //   $.ajax("/api/burgers", {
-  //     type: "POST",
-  //     data: newburger
-  //   }).then(
-  //     function() {
-  //       console.log("created new burger");
-  //       // Reload the page to get the updated list
-  //       location.reload();
-  //     }
-  //   );
-  // });
+      url: "http://localhost:8080/api/add/user",
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      data: jsonData,
+      dataType: "json",
+      success: function (data) {
+        console.log(data);
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+  });
 
-  // $(".delete-burger").on("click", function(event) {
-  //   var id = $(this).data("id");
-
-  //   // Send the DELETE request.
-  //   $.ajax("/api/burgers/" + id, {
-  //     type: "DELETE"
-  //   }).then(
-  //     function() {
-  //       console.log("deleted burger", id);
-  //       // Reload the page to get the updated list
-  //       location.reload();
-  //     }
-  //   );
-  // });
+  $(".profBudget").click(function () {
+    console.log("Open Profile Budget");
+  });
 });

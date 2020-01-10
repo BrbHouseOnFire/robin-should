@@ -3,24 +3,24 @@
 const orm = require("../config/orm.js");
 
 let expense = {
-  all: function(cb) {
-    orm.all("expenses", function(res) {
+  all: function (cb) {
+    orm.all("expenses_budgeted", function (res) {
       cb(res);
     });
   },
   // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.create("expenses", cols, vals, function(res) {
+  create: function (cols, vals, cb) {
+    orm.create("expenses_budgeted", cols, vals, function (res) {
       cb(res);
     });
   },
-  update: function(objColVals, condition, cb) {
-    orm.update("expenses", objColVals, condition, function(res) {
+  update: function (objColVals, condition, cb) {
+    orm.update("expenses_budgeted", objColVals, condition, function (res) {
       cb(res);
     });
   },
-  delete: function(condition, cb) {
-    orm.delete("expenses", condition, function(res) {
+  delete: function (condition, cb) {
+    orm.delete("expenses_budgeted", condition, function (res) {
       cb(res);
     });
   }
