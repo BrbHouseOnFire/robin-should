@@ -1,47 +1,75 @@
-<h1>Eat Em Up!</h1>
+    <section class="bg">    
+        <!-- BASE NAV BAR -->
+            <span class="flex flex-row h-16 bg-green-1 align-text-bottom pl-64 pr-64 border-solid border-b-2 border-black">
+                <!-- ICON AND PRODUCT NAME -->
+                <img src="https://img.icons8.com/cotton/64/000000/money-transfer.png">ROBINshould
+            </span>
 
-<div class = "burgerContainer">
-  <div class = "nonEaten">
-    <h2>Fresh Cooked Burgers:</h2>
-    <div class = "listWrapper">
-      <ul>
-        {{#each burgers}}
-          {{#unless sleepy}}
-            {{> burgers/burger-block sleep=true}}
-          {{/unless}}
-        {{/each}}
-      </ul>
+    <!-- --------------- HANDLEBARS EXAMPLE --------------- -->
+    <!-- <div class="flex flex-none flex-row content-center justify-center pl-64 pr-64"> -->
+        <!-- {{#each user}} -->
+        <!-- <button class="w-56 h-64 bg-green-7 ml-4 mr-4 border-solid border-4 border-color-8"> -->
+            <!-- {{username}} -->
+        <!-- </button> -->
+        <!-- {{/each}} -->
+    <!-- </div> -->
+    <!-- --------------- END HANDLEBARS EXAMPLE --------------- -->
+    
+        <!-- CONTAINER FOR PROFILE BOX ALIGNS TO RIGHT SIDE -->
+            <div class="flex justify-end pl-64 pr-20 pt-8 ">
+                <!-- PROFILE CHOOSE BOX CONTAINER-->
+                <div class="flex flex-col flex-none bg-green-1 landing-box bg-white">
 
-    </div>
-  </div>
-  <div class = "eaten">
-    <h2>Consumed Burgers:</h2>
-    <div class = "listWrapper">
-      <ul>
-        {{#each burgers}}
-          {{#if sleepy}}
-            {{> burgers/burger-block sleep=false}}
-          {{/if}}
-        {{/each}}
-      </ul>
-    </div>
-  </div>
-</div>
+                    <!-- WELCOME MESSAGE IN PROFILE BOX -->
+                    <div class="pt-6 pr-8 pl-8 text1 align-text-bottom text-heebo">
+                        Welcome
+                    </div>
+                    <div class="pr-8 pl-8 text2 text-heebo">
+                        start planning today with ROBINshould
+                    </div>
+                    <!-- DIVIDE LINE IN PROFILE BOX -->
+                    <div class="pt-2 border-b-2 border-gray-300 border-solid ml-4 mr-4"></div>
 
-<div class = "addBurgerContainer">
-  <div>
-    <h2>Add a Burger</h2>
-    <form class="create-form">
-      <div class="form-group">
-        <label for="ca">Burger Name:</label>
-        <input type="text" id="ca" name="name">
-      </div>
-      {{!-- <div class="form-group">
-        <label for="sleepy">Sleepy?</label><br>
-        <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-        <input type="radio" name="sleepy" value="0"> Awake
-      </div> --}}
-      <button type="submit">Add burger</button>
-    </form>
-  </div>
-</div>
+                    <!-- FORMS FOR NEW USERS IN PROFILE BOX -->
+                    <div class="text-heebo pl-8 pr-8 pt-2">
+                        <div class="pt-2">
+                            First Name: <input type="text" id="firstName"></input>
+                        </div>
+
+                        <div class="pt-2 pb-5">
+                            Last Name <input type="text" id="lastName"></input>
+                        </div>
+
+                        <button id="createProfile" class="profileButton">Create my profile</button>
+                    </div>
+
+                    <!-- DIVIDE LINE IN PROFILE BOX -->
+                    <div class="pt-6 border-b-2 border-gray-300 border-solid ml-4 mr-4"></div>
+
+                    <!-- BOTTOM HALF FOR EXISTING USERS -->
+                    <div class="text3 text-heebo pl-8 pr-8 pt-4">
+                        Choose an existing profile
+                    </div>
+
+                    <!-- CONTAINER FLEX BOX TO HOLD USERS -->
+                    <div class="text2 text-heebo pl-8 pr-8 pt-4 "> 
+
+                        <!-- BUTTONS TO PROFILES REPLACE WITH HANDLEBARS LOOPING BASED ON DATABASE -->
+                        <button class="profButtons text2 text-heebo mt-2 mb-2">
+                            Bobby
+                        </button>
+                        <button class="profButtons text2 text-heebo mt-2 mb-2">
+                            Gabe
+                        </button>
+                        <button class="profButtons text2 text-heebo mt-2 mb-2">
+                            Joanna
+                        </button>
+                        <button class="profButtons text2 text-heebo mt-2 mb-2">
+                            Drew
+                        </button>
+                        
+                    </div>
+                </div>
+            </div>
+
+    </section>

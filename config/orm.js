@@ -1,5 +1,6 @@
+// Controller takes route requests, calls functions within the models, which utilize SQL commands from the ORM.
 // Import MySQL connection.
-var connection = require("./connection.js");
+const connection = require("./connection.js");
 
 // Helper function for SQL syntax.
 // Let's say we want to pass 3 values into the mySQL query.
@@ -40,7 +41,7 @@ function objToSql(ob) {
 }
 
 // Object for all our SQL statement functions.
-var orm = {
+let orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
@@ -89,7 +90,7 @@ var orm = {
     });
   },
   delete: function(table, condition, cb) {
-    var queryString = "DELETE FROM " + table;
+    let queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
     queryString += condition;
 
@@ -100,8 +101,59 @@ var orm = {
 
       cb(result);
     });
-  }
+  },
+  // userAll: function(table, user, condition, cb) {
+  //   let queryString = "SELECT * FROM " + table + " where ?;";
+  //   connection.query(queryString, function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     cb(result);
+  //   });
+  // },
+  selectWhere: function(tableInput, colToSearch, valOfCol) {
+    return new Promise ((resolve, reject) => {
+      let queryString = "SELECT * FROM ?? WHERE ?? = ?";
+      connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
+        if (err) throw err;
+        resolve(result);
+      });
+    });
+  },
+  selectAllOnJoin: function(tableOne, tableTwo, tableOneForeignKey, tableTwoPrimaryKey) {
+    let queryString =
+      `select distinct table1.*, table2.* from ?? table2
+      inner join ?? table1 on table2.?? = table1.??`;
+    connection.query(
+      queryString,
+      [tableOne, tableTwo, tableOneForeignKey, tableTwoPrimaryKey],
+      function(err, result) {
+        if (err) throw err;
+        console.log(queryString);
+        console.log(result);
+      }
+    );
+  },
+  selectAndOrder: function(whatToSelect, table, orderCol) {
+    let queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
+    connection.query(queryString, [whatToSelect, table, orderCol], function(err, result) {
+      if (err) throw err;
+      console.log(queryString);
+      result.forEach((element) => {
+        console.log(element);
+      });
+    });
+  },
+  selectAllAndOrder: function(table, orderCol) {
+    let queryString = "SELECT * FROM ?? ORDER BY ?? DESC";
+    connection.query(queryString, [table, orderCol], function(err, result) {
+      if (err) throw err;
+      console.log(queryString);
+      result.forEach((element) => {
+        console.log(element);
+      });
+    });
+  },
 };
 
-// Export the orm object for the model (burger.js).
 module.exports = orm;
