@@ -8,6 +8,9 @@ VALUES
   ('Example User Joe', 900, 1),
   ('Example User Joe', 60, 8),
   ('Example User Joe', 100, 71);
+INSERT INTO expenses_budgeted (user, category_id)
+VALUES
+  ('Example User Joe', 9);
 INSERT INTO expenses_actual (user, amount, category_id)
 VALUES
   ('Example User Joe', 75, 13),
