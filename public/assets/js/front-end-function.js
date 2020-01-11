@@ -28,6 +28,10 @@ $(function() {
     window.location.href = "/";
   });
 
+  $("#budget").click(function() {
+    window.location.href = "/budget/set/1/:username";
+  });
+
   $("#expenses").click(function() {
     window.location.href = "/budget/expenses/username";
   });
