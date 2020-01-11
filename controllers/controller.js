@@ -46,8 +46,7 @@ router.get("/", function (req, res) {
   });
 });
 
-
-// SET BUDGET CATEGORIES PAGE
+// SET BUDGET CATEGORIES PAGE 1
 router.get("/budget/set/1/:username", (req, res) => {
   // pull all current budget categories
   let username = req.params.username;
@@ -74,7 +73,7 @@ router.get("/budget/set/1/:username", (req, res) => {
     });
   });
 });
-// SET BUDGET AMOUNTS PAGE
+// SET BUDGET AMOUNTS PAGE 2
 router.get("/budget/set/2/:username", (req, res) => {
   // pull all current budget categories
   let username = req.params.username;
@@ -89,23 +88,25 @@ router.get("/budget/set/2/:username", (req, res) => {
     res.render("budgetpage1", budgetCategories);
   });
 });
-// VIEW/SUBMIT EXPENSES PAGE
+// VIEW/SUBMIT EXPENSES PAGE 3
 router.get("/budget/expenses/:username", (req, res) => {
   let username = req.params.username;
   // pull all expenses for the user
   user.expenses(username, function (data) {
-    console.log(data);
     let expenseList = {
       expense: data
     };
     expenseList.userName = username;
-    // console.log(expenseList);
+    console.log(expenseList);
     // render page with passed in budget categories
     res.render("expenses", expenseList);
   });
 });
-// SEXY RESULT PAGES
-// router.get("")
+// SEXY RESULT PAGE(S) 4
+router.get("/lifestyle/1/:username", (req, res) => {
+  let username = req.params.username;
+
+});
 
 
 // -------------------------------- API ROUTES --------------------------------
@@ -168,7 +169,6 @@ router.post("/api/add/user", function (req, res) {
     });
 });
 
-
 // ---------------- API GET ROUTES ----------------
 // api route to pull list of users
 router.get("/api/users", (req, res) => {
@@ -212,11 +212,48 @@ router.put("/api/users/:id", function (req, res) {
 });
 
 // ---------------- API DELETE ROUTES ----------------
-// delete a user by ID, probably not needed.
+// delete a user by ID
 router.delete("/api/users/:id", function (req, res) {
   let condition = "id = " + req.params.id;
-
   user.delete(condition, function (result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+// delete a category by ID
+router.delete("/api/category/:id", function (req, res) {
+  let condition = `id = ${req.params.id}`;
+  category.delete(condition, function (result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+// delete a user's budget category by ID
+router.delete("/api/budget/:id", function (req, res) {
+  let condition = `id = ${req.params.id}`;
+  expenses.delete(condition, function (result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+// delete an expense by ID
+router.delete("/api/expenses/:id", function (req, res) {
+// router.delete("/api/expenses/:user/:id", function (req, res) {
+  // let condition = `id = ${req.params.id} AND user = ${req.params.user}`;
+  let condition = `id = ${req.params.id}`;
+  expenses.delete(condition, function (result) {
     if (result.affectedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
