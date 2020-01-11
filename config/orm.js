@@ -121,7 +121,7 @@ let orm = {
       });
     });
   },
-  selectAllOnJoin: function (tableOne, tableTwo, tableOneForeignKey, tableTwoPrimaryKey) {
+  selectAllOnJoin: function (tableOne, tableTwo, tableOneForeignKey, tableTwoPrimaryKey, cb) {
     let queryString =
       `select distinct table1.*, table2.* from ?? table2
       inner join ?? table1 on table2.?? = table1.??`;
@@ -132,9 +132,28 @@ let orm = {
         if (err) throw err;
         console.log(queryString);
         console.log(result);
+        cb(result);
       }
     );
   },
+  // selectAllOnJoinWhere: function (tableOne, tableTwo, tableOneForeignKey, tableTwoPrimaryKey, condition, cb) {
+  //   let queryString =
+  //     `select distinct table1.*, table2.* from ?? table2
+  //     inner join ?? table1 on table2.?? = table1.??
+  //     where ?? = ?`;
+  //     let aStringExample = `select distinct c.name from categories c 
+  //     inner join expenses_budgeted b on b.category_id = c.id where b.user = ? ;`;
+  //   connection.query(
+  //     queryString,
+  //     [tableOne, tableTwo, tableOneForeignKey, tableTwoPrimaryKey],
+  //     function (err, result) {
+  //       if (err) throw err;
+  //       console.log(queryString);
+  //       console.log(result);
+  //       cb(result);
+  //     }
+  //   );
+  // },
   selectAndOrder: function (whatToSelect, table, orderCol) {
     let queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
     connection.query(queryString, [whatToSelect, table, orderCol], function (err, result) {
@@ -155,14 +174,16 @@ let orm = {
       });
     });
   },
-  userBudget: function (user) {
-    let queryString = "select distinct c.name from categories c inner join expenses_budgeted b on b.category_id = c.id where b.user = ?;";
+  userBudget: function (user, cb) {
+    let queryString = `select distinct c.name from categories c 
+    inner join expenses_budgeted b on b.category_id = c.id where b.user = ?;`;
     connection.query(queryString, [user], function (err, result) {
       if (err) throw err;
-      console.log(queryString);
-      result.forEach((element) => {
-        console.log(element);
-      });
+      // console.log(queryString);
+      // result.forEach((element) => {
+      //   console.log(element);
+      // });
+      cb(result);
     });
   },
 };
