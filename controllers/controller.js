@@ -46,20 +46,6 @@ router.get("/", function (req, res) {
   });
 });
 
-// EXPENSES PAGE
-router.get("/expenses", function (req, res) {
-  expense.all(function (data) {
-    let expensesObj = {
-      expenses: data
-    };
-    /*
-      use {{fieldname}} to pass the dynamic data into the html template
-    */
-    console.log(expensesObj);
-    res.render("expenses", expensesObj);
-
-  });
-});
 
 // SET BUDGET CATEGORIES PAGE
 router.get("/budget/set/1/:username", (req, res) => {
@@ -207,7 +193,7 @@ router.get("/api/categories", (req, res) => {
 });
 
 // ---------------- API PUT ROUTES ----------------
-// router for updating a user. Likely not needed for this project.
+// router for updating a user. Likely not needed for this project. UNFINISHED
 router.put("/api/users/:id", function (req, res) {
   // let condition = "id = " + req.params.id;
 
