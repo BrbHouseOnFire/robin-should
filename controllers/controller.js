@@ -64,22 +64,30 @@ router.get("/expenses", function (req, res) {
 router.get("/budget/set/1/:username", (req, res) => {
   // pull all current budget categories
   let username = req.params.username;
+  console.log("route: /budget/set/1/" + username);
   category.all((data) => {
     let categoryObj = {
       category: data
     };
-    category.userBudget((data) => {
+    console.log(categoryObj);
+    category.userBudget(username, function (data) {
       let budgetCategories = {
         userCategory: data
       };
-      // categoryObj.personName = username;
-      console.log("/budget/set/1/" + username);
-      console.log(categoryObj);
       console.log(budgetCategories);
+      let fullObj = {
+        fullCategoryList: categoryObj,
+        userCategoryList: budgetCategories,
+        user: username
+      };
+      console.log(fullObj);
+      // categoryObj.personName = username;
       // render page with passed in budget categories
-      res.render("budgetpage1", categoryObj, budgetCategories, username);
-    })
+      res.render("budgetpage1", fullObj);
+    });
   });
+  
+  
 });
 // SET BUDGET AMOUNTS PAGE
 router.get("/budget/set/2", (req, res) => {
