@@ -125,7 +125,9 @@ height: 58vh;
 
 .budg-cont-1 {
 width: 70%;
-height: 58vh
+height: 58vh;
+overflow: scroll;
+overflow-x: hidden;
 }
 
 .budg-cont-3 {
