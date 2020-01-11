@@ -1,5 +1,5 @@
 // Functions for On-clicks, routes, and page info linked from the main handlebar.
-
+let path = require("path");
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
 
