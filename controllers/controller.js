@@ -68,11 +68,17 @@ router.get("/budget/set/1/:username", (req, res) => {
     let categoryObj = {
       category: data
     };
-    categoryObj.personName = username;
-    console.log("/budget/set/1/:username");
-    console.log(categoryObj);
-    // render page with passed in budget categories
-    res.render("budgetpage1", categoryObj);
+    category.userBudget((data) => {
+      let budgetCategories = {
+        userCategory: data
+      };
+      // categoryObj.personName = username;
+      console.log("/budget/set/1/" + username);
+      console.log(categoryObj);
+      console.log(budgetCategories);
+      // render page with passed in budget categories
+      res.render("budgetpage1", categoryObj, budgetCategories, username);
+    })
   });
 });
 // SET BUDGET AMOUNTS PAGE
