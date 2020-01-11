@@ -1,5 +1,5 @@
 .bg {
-  background-image: url(background1.jpeg);
+  background-image: url(../img/background1.jpeg);
   height: 100vh;
   background-size: cover;  
 }
@@ -18,7 +18,6 @@ height: 4vh;
 border-radius: 20px;
 background-color: #66c6ba;
 }
-
 
 
 .text1 {
@@ -60,56 +59,56 @@ border: 2px solid #649dad;
 }
 
 .profileButton {
-  background-color: #649dad;
-  color: white;
-  width: 35vh;
-  height: 4vh;
-  border-radius: 15px;
+background-color: #649dad;
+color: white;
+width: 35vh;
+height: 4vh;
+border-radius: 15px;
 
 }
 
 .profileButton:hover {
-  border: 3px solid #03414d;
+border: 3px solid #03414d;
 }
 
 .button-border:hover {
-  border-color: #649dad;
+border-color: #649dad;
 }
 
 .button-border2:hover {
-  border: solid 1px;
-  border-color: #878e96;
+border: solid 1px;
+border-color: #878e96;
 }
 
 .budg-button {
-  height: 5vh;
-  width: 30vh;
-  border-radius: 50px;
-  background-color: #649dad;
+height: 5vh;
+width: 30vh;
+border-radius: 50px;
+background-color: #649dad;
 }
 
 .font {
-  color: #a8a8a8;
-  font-family: "Montserrat", sans-serif;
-  size: 25%;
+color: #a8a8a8;
+font-family: "Montserrat", sans-serif;
+size: 25%;
 }
 
 .catButton {
-  height: 3.5vh;
-  width: 30vh;
-  border-radius: 25px;
-  margin: .75vh;
-  background-color: #649dad;
-  color: white;
-  text-align: center;
+height: 3.5vh;
+width: 30vh;
+border-radius: 25px;
+margin: .75vh;
+background-color: #649dad;
+color: white;
+text-align: center;
 }
 
 .catButton:hover {
-  border: 3px solid #03414d;
+border: 3px solid #03414d;
 }
 
 .font:hover {
-  color: #649dad;
+color: #649dad;
 }
 
 .container1 {
@@ -117,138 +116,149 @@ height: 70vh;
 }
 
 .container2 {
-  height: 18vh;
-  }
+height: 18vh;
+}
 
 .container3 {
-  height: 58vh;
+height: 58vh;
 }
 
 .budg-cont-1 {
-  width: 70%;
-  height: 58vh;
-  overflow: scroll;
-  overflow-x: hidden;
+width: 70%;
+height: 58vh
 }
 
 .budg-cont-3 {
-  width: 70%;
-  height: 70vh;
+width: 70%;
+height: 70vh;
 }
 
 .budg-cont-4 {
-  height: 58vh;
-  overflow: scroll;
-  overflow-x: hidden;
+height: 58vh;
+overflow: scroll;
+overflow-x: hidden;
 }
 
 .budg-cont-2 {
-  width: 30%;
+width: 30%;
 }
 
 .robin-should {
-  color: #03414d;
-  font-family: "Montserrat", sans-serif;
-  size: 55%;
+color: #03414d;
+font-family: "Montserrat", sans-serif;
+size: 55%;
+}
+
+.dropdown {
+position: relative;
+display: inline-block;
+}
+
+.bg-gray-1 {
+background-color: #c4c4c4;
+}
+
+.bg-gray-2 {
+background-color: #e6e6e6;
 }
 
 .bg-green-1 {
-  background-color: #c8f4de;
+background-color: #c8f4de;
 }
 
 .bg-green-2 {
-  background-color: #a4e5d9;
+background-color: #a4e5d9;
 }
 
 .bg-green-3 {
-  background-color: #66c6ba;
+background-color: #66c6ba;
 }
 
 .bg-green-4 {
-  background-color: #649dad;
+background-color: #649dad;
 }
 
 .bg-green-5 {
-  background-color: #e6f8f6;
+background-color: #e6f8f6;
 }
 
 .bg-green-6 {
-  background-color: #a0f6d2;
+background-color: #a0f6d2;
 }
 
 .bg-green-7 {
-  background-color: #72dfd0;
+background-color: #72dfd0;
 }
 
 .bg-green-8 {
-  background-color: #03414d;
+background-color: #03414d;
 }
 
 .height-auto {
-  height: 48vw;
+height: 48vw;
 }
 
 .font-heebo {
-  font-family: "Heebo", sans-serif;
+font-family: "Heebo", sans-serif;
 }
 
 .f-color-8 {
-  color: #03414d;
+color: #03414d;
 }
 
 .border-color-8 {
-  border-color: #03414d;
+border-color: #03414d;
 }
 
 .bg-two {
-  background-color: #03414d;
+background-color: #03414d;
 }
 
 .bg-white {
-  background-color: white;
+background-color: white;
 }
 
 .font {
-  color: #03414d;
-  font-family: "Montserrat", sans-serif;
-  size: 25%;
+color: #03414d;
+font-family: "Montserrat", sans-serif;
+size: 25%;
 }
 
 .font-two {
-  color: #e6f8f6;
-  font-family: "Montserrat", sans-serif;
-  size: 25%;
+color: #e6f8f6;
+font-family: "Montserrat", sans-serif;
+size: 25%;
 }
 
 .font:hover {
-  color: #649dad;
+color: #649dad;
 }
 
 .navbar {
-  height: 10vh;
-  background-color: #012e36;
+height: 10vh;
+background-color: #012e36;
 }
 
 .navbar-font {
-  color: #a4e5d9;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+color: #a4e5d9;
+font-family: "Montserrat", sans-serif;
+font-size: 15px;
 }
 
 .robin-should {
-  color: #03414d;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+color: #03414d;
+font-family: "Montserrat", sans-serif;
+font-size: 15px;
 }
 
 .robin-should-two {
-  color: #e6f8f6;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+color: #e6f8f6;
+font-family: "Montserrat", sans-serif;
+font-size: 15px;
 }
 
 .welcome-font {
-  color: #e6f8f6;
-  font-family: "Montserrat", sans-serif;
-  font-size: 30px;
+color: #e6f8f6;
+font-family: "Montserrat", sans-serif;
+font-size: 30px;
 }
