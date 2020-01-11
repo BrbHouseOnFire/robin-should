@@ -42,16 +42,16 @@ function objToSql(ob) {
 
 // Object for all our SQL statement functions.
 let orm = {
-  all: function(tableInput, cb) {
+  all: function (tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
   },
-  create: function(table, cols, vals, cb) {
+  create: function (table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -63,7 +63,8 @@ let orm = {
 
     console.log(queryString);
 
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, vals, function (err, result) {
+
       if (err) {
         throw err;
       }
@@ -72,7 +73,7 @@ let orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  update: function(table, objColVals, condition, cb) {
+  update: function (table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
@@ -81,7 +82,7 @@ let orm = {
     queryString += condition;
 
     console.log(queryString);
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
@@ -89,12 +90,12 @@ let orm = {
       cb(result);
     });
   },
-  delete: function(table, condition, cb) {
+  delete: function (table, condition, cb) {
     let queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
     queryString += condition;
 
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
@@ -111,32 +112,32 @@ let orm = {
   //     cb(result);
   //   });
   // },
-  selectWhere: function(tableInput, colToSearch, valOfCol) {
-    return new Promise ((resolve, reject) => {
+  selectWhere: function (tableInput, colToSearch, valOfCol) {
+    return new Promise((resolve, reject) => {
       let queryString = "SELECT * FROM ?? WHERE ?? = ?";
-      connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
+      connection.query(queryString, [tableInput, colToSearch, valOfCol], function (err, result) {
         if (err) throw err;
         resolve(result);
       });
     });
   },
-  selectAllOnJoin: function(tableOne, tableTwo, tableOneForeignKey, tableTwoPrimaryKey) {
+  selectAllOnJoin: function (tableOne, tableTwo, tableOneForeignKey, tableTwoPrimaryKey) {
     let queryString =
       `select distinct table1.*, table2.* from ?? table2
       inner join ?? table1 on table2.?? = table1.??`;
     connection.query(
       queryString,
       [tableOne, tableTwo, tableOneForeignKey, tableTwoPrimaryKey],
-      function(err, result) {
+      function (err, result) {
         if (err) throw err;
         console.log(queryString);
         console.log(result);
       }
     );
   },
-  selectAndOrder: function(whatToSelect, table, orderCol) {
+  selectAndOrder: function (whatToSelect, table, orderCol) {
     let queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
-    connection.query(queryString, [whatToSelect, table, orderCol], function(err, result) {
+    connection.query(queryString, [whatToSelect, table, orderCol], function (err, result) {
       if (err) throw err;
       console.log(queryString);
       result.forEach((element) => {
@@ -144,9 +145,9 @@ let orm = {
       });
     });
   },
-  selectAllAndOrder: function(table, orderCol) {
+  selectAllAndOrder: function (table, orderCol) {
     let queryString = "SELECT * FROM ?? ORDER BY ?? DESC";
-    connection.query(queryString, [table, orderCol], function(err, result) {
+    connection.query(queryString, [table, orderCol], function (err, result) {
       if (err) throw err;
       console.log(queryString);
       result.forEach((element) => {

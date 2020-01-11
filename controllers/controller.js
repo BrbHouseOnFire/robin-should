@@ -45,17 +45,34 @@ router.get("/", function (req, res) {
   });
 });
 
+// EXPENSES PAGE
+router.get("/expenses", function (req, res) {
+  expense.all(function (data) {
+    let expensesObj = {
+      expenses: data
+    };
+    /*
+      use {{fieldname}} to pass the dynamic data into the html template
+    */
+    console.log(expensesObj);
+    res.render("expenses", expensesObj);
+
+  });
+});
+
 // SET BUDGET CATEGORIES PAGE
 router.get("/budget/set/1/:username", (req, res) => {
   // pull all current budget categories
   let username = req.params.username;
   category.all((data) => {
-    let object = {
+    let categoryObj = {
       category: data
     };
-    console.log(object);
+    categoryObj.personName = username;
+    console.log("/budget/set/1/:username");
+    console.log(categoryObj);
     // render page with passed in budget categories
-    res.render("/", object);
+    res.render("budgetpage1", categoryObj);
   });
 });
 // SET BUDGET AMOUNTS PAGE
@@ -78,14 +95,12 @@ router.get("/budget/expenses", (req, res) => {
       category: data
     };
     console.log(categoryObject);
-    expenses.all((data) => {
+    expense.all((data) => {
       let expenseObject = {
         expense: data
       };
-      console.log(expenseObject);
       // render page with passed in budget categories and expenses
-      res.render("/", object);
-
+      res.render("budgetpage1", expenseObject);
     })
   });
 });
@@ -107,15 +122,44 @@ router.post("/api/add/category", function (req, res) {
     });
 });
 
+router.post("/api/add/expenses", function (req, res) {
+  console.log(req.body);
+  // Add new user expenses
+  var userExpenses = req.body;
+  expense.create(
+    ["user", "amount", "category_id"],
+    [userExpenses.user, userExpenses.amount, userExpenses.category_id],
+    function (result) {
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    });
+
+
+  /*
+  category.create(
+    [
+      "name" //, "otherColumn"
+    ],
+    [
+      req.body.name//, req.body.otherColumn
+    ],
+    function (result) {
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    });*/
+});
+
 
 // creates a new user.
 router.post("/api/add/user", function (req, res) {
+  console.log("/api/add/user");
+  console.log(req.body);
   user.create(
     [
       "username" //, "otherColumn"
     ],
     [
-      req.body.username//, req.body.otherColumn
+      req.body.userName//, req.body.otherColumn
     ],
     function (result) {
       // Send back the ID of the new user
