@@ -14,7 +14,7 @@
 
 <body>
 
-<section class="bg-two h-screen">
+  <section class="bg-two h-screen">
     <!-- START NAV BAR -->
     <nav class="flex flex-row h-16 bg-green-1 align-text-bottom pl-64 pr-64 border-solid border-b-2 border-black">
 
@@ -28,10 +28,10 @@
         <button id="home" class="items-center w-32 text-center text2">
           HOME
         </button>
-        <button class="items-center w-32 text-center text2">
+        <button id="budget" class="items-center w-32 text-center text2">
           BUDGET
         </button>
-        <button class="items-center w-32 text-center text2">
+        <button id="expenses" class="items-center w-32 text-center text2">
           EXPENSES
         </button>
         <button class="items-center w-32 text-center text2">
@@ -51,37 +51,37 @@
 
     <!----------------- CONTAINER FOR EXPENSES ----------------->
     <section class="flex flex-col bg-white ml-64 mr-64 mt-3">
-        <div class="text1 pt-4 pl-6 pr-6 pb-4">
-            Expense for
-            <select class="">
-                <option value="">Category</option>
+      <div class="text1 pt-4 pl-6 pr-6 pb-4">
+        Expense for
+        <select class="">
+          <option value="">Category</option>
 
-                <!----------------- PARTIAL HERE FOR LOOPING THROUGHT THE CATEGORIES ----------------->
-                {{#each expense}}
-                  {{> users/expenseCat-block}}
-                {{/each}}
-            </select>
-            <form>
-                <input type="number"></input>
-            </form>
-        </div>
-        <button class="border-black border-2 p-2 m-1">
-            Save
-        </button>
+          <!----------------- PARTIAL HERE FOR LOOPING THROUGHT THE CATEGORIES ----------------->
+          {{#each expense}}
+          {{> users/expenseCat-block}}
+          {{/each}}
+        </select>
+        <form>
+          <input type="number"></input>
+        </form>
+      </div>
+      <button class="border-black border-2 p-2 m-1">
+        Save
+      </button>
     </section>
 
 
     <!----------------- CONTAINER FOR LIST OF ALREADY EXISTING EXPENSES ----------------->
     <section class="flex bg-white flex-col ml-64 mr-64 mt-3 ml-6 mr-6">
-        <div class="text1 bg-gray-1 pl-6 border-b-2 border-black">
-            Total Expenses
-        </div>
-        <!----------------- PARTIAL HERE FOR LOOPING THROUGH THE EXPENSES ----------------->
-        <div class="flex flex-col pt-2 pb-2 border-b-2 border-black">
-          {{#each expense}}
-            {{> users/totalExpense-block}}
-          {{/each}}
-        </div>
+      <div class="text1 bg-gray-1 pl-6 border-b-2 border-black">
+        Total Expenses
+      </div>
+      <!----------------- PARTIAL HERE FOR LOOPING THROUGH THE EXPENSES ----------------->
+      <div class="flex flex-col pt-2 pb-2 border-b-2 border-black">
+        {{#each expense}}
+        {{> users/totalExpense-block}}
+        {{/each}}
+      </div>
     </section>
 
   </section>
