@@ -57,10 +57,9 @@
                 <option value="">Category</option>
 
                 <!----------------- PARTIAL HERE FOR LOOPING THROUGHT THE CATEGORIES ----------------->
-                <option value="">Amazon</option>
-                <option value="">Food</option>
-                <option value="">Stuff</option>
-                <option value="">Leisure</option>
+                {{#each expense}}
+                  {{> users/expenseCat-block}}
+                {{/each}}
             </select>
             <form>
                 <input type="number"></input>
@@ -78,47 +77,11 @@
             Total Expenses
         </div>
         <!----------------- PARTIAL HERE FOR LOOPING THROUGH THE EXPENSES ----------------->
-        <div class="flex flex-row justify-between pr-6 pl-6 pt-2 pb-2 border-b-2 border-black">
-            <div class="text2">
-                Amazon
-            </div>
-            <div>
-                500.00
-            </div>
+        <div class="flex flex-col pt-2 pb-2 border-b-2 border-black">
+          {{#each expense}}
+            {{> users/totalExpense-block}}
+          {{/each}}
         </div>
-        <div class="flex flex-row justify-between pr-6 pl-6 pt-2 pb-2 border-b-2 border-black">
-            <div class="text2">
-                Stuff
-            </div>
-            <div>
-                500.00
-            </div>
-        </div>
-        <div class="flex flex-row justify-between pr-6 pl-6 pt-2 pb-2 border-b-2 border-black">
-            <div class="text2">
-                Leisure
-            </div>
-            <div>
-                500.00
-            </div>
-        </div>
-        <div class="flex flex-row justify-between pr-6 pl-6 pt-2 pb-2 border-b-2 border-black">
-            <div class="text2">
-                Taco Bell
-            </div>
-            <div>
-                500.00
-            </div>
-        </div>
-        <div class="flex flex-row justify-between pr-6 pl-6 pt-2 pb-2 border-b-2 border-black">
-            <div class="text2">
-                Amazon
-            </div>
-            <div>
-                500.00
-            </div>
-        </div>
-
     </section>
 
   </section>
