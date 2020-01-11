@@ -32,6 +32,7 @@ const router = express.Router();
 const user = require("../models/user.js");
 const category = require("../models/categories.js");
 const expense = require("../models/expenses.js");
+const budget = require("../models/budgets.js");
 
 // Create all our routes and set up logic within those routes where required.
 // default landing page
@@ -89,7 +90,6 @@ router.get("/budget/set/1/:username", (req, res) => {
 });
 // SET BUDGET AMOUNTS PAGE
 router.get("/budget/set/2/:username", (req, res) => {
-
   // pull all current budget categories
   let username = req.params.username;
   console.log("route: /budget/set/2/" + username);
@@ -104,20 +104,18 @@ router.get("/budget/set/2/:username", (req, res) => {
   });
 });
 // VIEW/SUBMIT EXPENSES PAGE
-router.get("/budget/expenses", (req, res) => {
-  // pull all current budget categories
-  category.userBudget((data) => {
-    let categoryObject = {
-      category: data
+router.get("/budget/expenses/:username", (req, res) => {
+  let username = req.params.username;
+  // pull all expenses for the user
+  user.expenses(username, function (data) {
+    console.log(data);
+    let expenseList = {
+      expense: data
     };
-    console.log(categoryObject);
-    expense.all((data) => {
-      let expenseObject = {
-        expense: data
-      };
-      // render page with passed in budget categories and expenses
-      res.render("budgetpage1", categoryObject, expenseObject);
-    });
+    expenseList.userName = username;
+    // console.log(expenseList);
+    // render page with passed in budget categories
+    res.render("expenses", expenseList);
   });
 });
 // SEXY RESULT PAGES
@@ -154,7 +152,7 @@ router.post("/api/add/category", function (req, res) {
 });
 
 // Create a new expense
-router.post("/api/add/expenses", function (req, res) {
+router.post("/api/add/expense", function (req, res) {
   console.log(req.body);
   // Add new user expenses
   var userExpenses = req.body;
@@ -167,7 +165,7 @@ router.post("/api/add/expenses", function (req, res) {
     });
 });
 
-// creates a new user.
+// create a new user.
 router.post("/api/add/user", function (req, res) {
   console.log("/api/add/user");
   console.log(req.body);
@@ -208,7 +206,7 @@ router.get("/api/categories", (req, res) => {
   });
 });
 
-
+// ---------------- API PUT ROUTES ----------------
 // router for updating a user. Likely not needed for this project.
 router.put("/api/users/:id", function (req, res) {
   // let condition = "id = " + req.params.id;
@@ -226,6 +224,8 @@ router.put("/api/users/:id", function (req, res) {
   //   }
   // });
 });
+
+// ---------------- API DELETE ROUTES ----------------
 // delete a user by ID, probably not needed.
 router.delete("/api/users/:id", function (req, res) {
   let condition = "id = " + req.params.id;

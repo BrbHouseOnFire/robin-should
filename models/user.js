@@ -25,8 +25,13 @@ let user = {
     });
   },
   // grab all categories from expenses_budgeted for the user
-  budget: function(username, cb) {
-    orm.selectWhere("expenses_budgeted", "user", username, function(res) {
+  // budget: function(username, cb) {
+  //   orm.selectWhere("expenses_budgeted", "user", username, function(res) {
+  //     cb(res);
+  //   });
+  // },
+  expenses: function(username, cb) {
+    orm.userExpenses(username, function(res) {
       cb(res);
     });
   },
