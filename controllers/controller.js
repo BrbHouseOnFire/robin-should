@@ -86,19 +86,21 @@ router.get("/budget/set/1/:username", (req, res) => {
       res.render("budgetpage1", fullObj);
     });
   });
-  
-  
 });
 // SET BUDGET AMOUNTS PAGE
-router.get("/budget/set/2", (req, res) => {
+router.get("/budget/set/2/:username", (req, res) => {
+
   // pull all current budget categories
-  category.userBudget((data) => {
-    let object = {
-      category: data
+  let username = req.params.username;
+  console.log("route: /budget/set/2/" + username);
+  category.userBudget(username, function (data) {
+    let budgetCategories = {
+      userCategory: data
     };
-    console.log(object);
+    categoryObj.userName = username;
+    console.log(budgetCategories);
     // render page with passed in budget categories
-    res.render("/", object);
+    res.render("budgetpage1", budgetCategories);
   });
 });
 // VIEW/SUBMIT EXPENSES PAGE
@@ -121,6 +123,21 @@ router.get("/budget/expenses", (req, res) => {
 // SEXY RESULT PAGES
 // router.get("")
 
+
+// -------------------------------- API ROUTES --------------------------------
+// a mock router for testing purposes
+router.get("/api/test/:valueone/:valuetwo/:valuethree", (req, res) => {
+  let val1 = req.params.valueone;
+  let val2 = req.params.valuetwo;
+  let val3 = req.params.valuethree;
+  console.log(val1);
+  console.log(val2);
+  console.log(val3);
+  expense.all((data) => {
+    return res.json(data);
+  });
+});
+// ---------------- API POST ROUTES ----------------
 // create a new category
 router.post("/api/add/category", function (req, res) {
   category.create(
@@ -136,6 +153,7 @@ router.post("/api/add/category", function (req, res) {
     });
 });
 
+// Create a new expense
 router.post("/api/add/expenses", function (req, res) {
   console.log(req.body);
   // Add new user expenses
@@ -147,22 +165,7 @@ router.post("/api/add/expenses", function (req, res) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
     });
-
-
-  /*
-  category.create(
-    [
-      "name" //, "otherColumn"
-    ],
-    [
-      req.body.name//, req.body.otherColumn
-    ],
-    function (result) {
-      // Send back the ID of the new quote
-      res.json({ id: result.insertId });
-    });*/
 });
-
 
 // creates a new user.
 router.post("/api/add/user", function (req, res) {
@@ -181,45 +184,26 @@ router.post("/api/add/user", function (req, res) {
     });
 });
 
-// // router for displaying a page specific to the user
-// router.get("/input/:username", function (req, res) {
-//   // grab the username from the URL
-//   let username = req.params.username;
-//   // display the input page for the specified user
-//   res.render("inputPage1", username);
-// });
 
-// // router for displaying a page specific to the user
-// router.get("/results/1/:username", function (req, res) {
-//   // grab the username from the URL
-//   let username = req.params.username;
-//   // display the results page for the specified user
-//   res.render("resultsPage1", username);
-// });
-// // router for displaying a page specific to the user
-// router.get("/results/2/:username", function (req, res) {
-//   // grab the username from the URL
-//   let username = req.params.username;
-//   // display the results page for the specified user
-//   res.render("resultsPage2", username);
-// });
-
-
-// a mock router for testing purposes
-router.get("/api/test/:valueone/:valuetwo/:valuethree", (req, res) => {
-  let val1 = req.params.valueone;
-  let val2 = req.params.valuetwo;
-  let val3 = req.params.valuethree;
-  console.log(val1);
-  console.log(val2);
-  console.log(val3);
-  expense.all((data) => {
-    return res.json(data);
-  });
-});
+// ---------------- API GET ROUTES ----------------
 // api route to pull list of users
 router.get("/api/users", (req, res) => {
   user.all((data) => {
+    return res.json(data);
+  });
+});
+// api route to pull a user's budgeted categories
+router.get("/api/:username/budget", (req, res) => {
+  let username = req.params.username;
+  console.log(`route: api/${username}/budget`);
+  category.userBudget(username, function (data) {
+    return res.json(data);
+  });
+});
+// api route to pull all categories
+router.get("/api/categories", (req, res) => {
+  console.log(`route: /api/categories`);
+  category.all(function (data) {
     return res.json(data);
   });
 });
