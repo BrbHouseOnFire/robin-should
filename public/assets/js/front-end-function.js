@@ -19,6 +19,14 @@ $(function () {
 
   });*/
 
+  $("#home").click(function () {
+    window.location.href = "http://localhost:8080/";
+  });
+
+  $("#expenses").click(function () {
+    window.location.href = "http://localhost:8080/";
+  });
+
   $("#createProfile").click(function () {
     console.log("Create Profile");
 
@@ -45,7 +53,6 @@ $(function () {
     console.log("Open Profile Budget");
   });
 
-  var expenses = [];
   var selectedCategory = "";
 
   $('#selectCategory').on('change', function (e) {
@@ -54,19 +61,18 @@ $(function () {
     console.log("new category: " + selectedCategory);
   });
 
-  $('#saveExpense').click(function () {
+  $('#submitExpenses').click(function () {
+
     var expenseVal = $("#expense").val();
+    var userName = $("#userName").text();
     var newCategory = {
-      category: selectedCategory,
-      expense: expenseVal
+      category_id: selectedCategory,
+      user: userName,
+      amount: expenseVal
     };
     console.log(newCategory);
-    expenses.push(newCategory);
-    console.log(expenses);
-  });
 
-  $('#submitExpenses').click(function () {
-    var jsonData = JSON.stringify(expenses);
+    var jsonData = JSON.stringify(newCategory);
 
     $.ajax({
       url: "http://localhost:8080/api/add/expenses",

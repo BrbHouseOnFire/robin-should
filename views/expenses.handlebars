@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+  <title>robinshould</title>
+  <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+  <!-- <script src="/assets/js/users.js"></script> -->
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <section class="bg-two h-screen">
+    <!-- START NAV BAR -->
+    <nav class="flex flex-row h-16 bg-green-1 align-text-bottom pl-64 pr-64 border-solid border-b-2 border-black">
+
+      <!-- SPOT FOR LOGO -->
+      <span class="flex justify-start align-text-bottom w-48">
+        <img src="https://img.icons8.com/cotton/64/000000/money-transfer.png">ROBINshould
+      </span>
+
+      <!------------------ BEGIN BUTTON LINKS ------------------>
+      <div class="flex justify-between">
+        <button id="home" class="items-center w-32 text-center text2">
+          HOME
+        </button>
+        <button class="items-center w-32 text-center text2">
+          BUDGET
+        </button>
+        <button class="items-center w-32 text-center text2">
+          EXPENSES
+        </button>
+        <button class="items-center w-32 text-center text2">
+          TABLES
+        </button>
+        <!-- END BUTTON LINKS -->
+      </div>
+    </nav>
+    <!------------------ END NAV BAR ------------------>
+
+    <!------------------ START PROFILE PAGE CONTENT ------------------>
+
+    <!-- BANNER FOR PAGE -->
+    <section class="bg-gray-100 h-32 text-center align-middle content-center">
+      This is a banner for a picture
+    </section>
+
+    <!-- CONTAINER FOR BUDGET CATEGORIES -->
+    <section class="flex flex-col bg-green-3 container1 ml-64 mr-64 mt-3">
+
+      <!-- HEADER FOR INSTRUCTION ON HOW TO USE THE PAGE -->
+      <div class="border-solid border-b-2 container2 border-black">WELCOME!
+        <span id="userName">{{personName}}</span>
+      </div>
+
+      <!-- CONTAINER FOR THE TWO COLUMNS -->
+      <div class="flex flex-row bg-green-8">
+
+        <!-- AREA FOR NEW BUTTONS AND EXISTING BUTTONS -->
+        <div class="w-58 bg-white budg-cont-1 pl-6 pt-6 pb-6 pr-6 border-black border-r-2">
+          <h4>Categories</h4>
+          <select id="selectCategory" style="border:2px solid green;">
+            {{#category}}
+            <option value="{{id}}">{{name}}</option>
+            {{/category}}
+          </select>
+
+        </div>
+
+        <!-- AREA FOR THE SELECTED BUTTONS -->
+        <div class="bg-green-2 container3 budg-cont-2 bg-color-1 pl-6 pt-6 pb-6 pr-6 h-full">
+          THIS IS YOUR BUTTON LOADOUT
+          <input type="number" id="expense" />
+        </div>
+      </div>
+    </section>
+
+    <!-- BIG SUBMIT BUTTON -->
+    <div class="text-right pt-3 mr-64">
+      <button id="submitExpenses" class="budg-button text2">
+        Confirm Categories
+      </button>
+    </div>
+  </section>
+</body>
+
+</html>

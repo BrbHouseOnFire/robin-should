@@ -45,6 +45,21 @@ router.get("/", function (req, res) {
   });
 });
 
+// EXPENSES PAGE
+router.get("/expenses", function (req, res) {
+  expense.all(function (data) {
+    let expensesObj = {
+      expenses: data
+    };
+    /*
+      use {{fieldname}} to pass the dynamic data into the html template
+    */
+    console.log(expensesObj);
+    res.render("expenses", expensesObj);
+
+  });
+});
+
 // SET BUDGET CATEGORIES PAGE
 router.get("/budget/set/1/:username", (req, res) => {
   // pull all current budget categories
@@ -108,11 +123,18 @@ router.post("/api/add/category", function (req, res) {
 });
 
 router.post("/api/add/expenses", function (req, res) {
-
+  console.log(req.body);
   // Add new user expenses
+  var userExpenses = req.body;
   expense.create(
+    ["user", "amount", "category_id"],
+    [userExpenses.user, userExpenses.amount, userExpenses.category_id],
+    function (result) {
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    });
 
-  );
+
   /*
   category.create(
     [
