@@ -12,10 +12,10 @@
             <button id="home" class="items-center w-32 text-center text2">
                 HOME
             </button>
-            <button class="items-center w-32 text-center text2">
+            <button id="budget" class="items-center w-32 text-center text2">
                 BUDGET
             </button>
-            <button class="items-center w-32 text-center text2">
+            <button id="expenses" class="items-center w-32 text-center text2">
                 EXPENSES
             </button>
             <button class="items-center w-32 text-center text2">
@@ -45,16 +45,17 @@
         <div class="flex flex-row bg-green-8">
 
             <!-- AREA FOR NEW BUTTONS AND EXISTING BUTTONS -->
-            <div class="flex flex-wrap justify-start w-58 bg-white content-start budg-cont-1 pl-6 pt-6 pb-6 pr-6 border-black border-r-2">
+            <div
+                class="flex flex-wrap justify-start w-58 bg-white content-start budg-cont-1 pl-6 pt-6 pb-6 pr-6 border-black border-r-2">
                 {{#each fullCategoryList.category}}
-                    {{> users/category-block}}
+                {{> users/category-block}}
                 {{/each}}
             </div>
 
             <!-- AREA FOR THE SELECTED BUTTONS -->
             <div class="bg-green-2 container3 budg-cont-2 bg-color-1 pl-6 pt-6 pb-6 pr-6 h-full">
                 {{#each userCategoryList.userCategory}}
-                    {{> users/category-block}}
+                {{> users/category-block}}
                 {{/each}}
             </div>
         </div>
