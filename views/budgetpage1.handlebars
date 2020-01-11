@@ -46,17 +46,16 @@
 
             <!-- AREA FOR NEW BUTTONS AND EXISTING BUTTONS -->
             <div class="flex flex-wrap justify-start w-58 bg-white content-start budg-cont-1 pl-6 pt-6 pb-6 pr-6 border-black border-r-2">
-                {{#each category}}
-                    <button value="{{id}}" class="catButton items-center flex justify-center">
-                        {{name}}
-                    </button>
+                {{#each fullCategoryList.category}}
+                    {{> users/category-block}}
                 {{/each}}
             </div>
 
             <!-- AREA FOR THE SELECTED BUTTONS -->
             <div class="bg-green-2 container3 budg-cont-2 bg-color-1 pl-6 pt-6 pb-6 pr-6 h-full">
-                THIS IS YOUR BUTTON LOADOUT
-                <input type="number" id="expense" />
+                {{#each userCategoryList.userCategory}}
+                    {{> users/category-block}}
+                {{/each}}
             </div>
         </div>
     </section>
