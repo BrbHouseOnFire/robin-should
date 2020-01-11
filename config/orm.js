@@ -179,10 +179,16 @@ let orm = {
     inner join expenses_budgeted b on b.category_id = c.id where b.user = ?;`;
     connection.query(queryString, [user], function (err, result) {
       if (err) throw err;
-      // console.log(queryString);
-      // result.forEach((element) => {
-      //   console.log(element);
-      // });
+      cb(result);
+    });
+  },
+  userExpenses: function (user, cb) {
+    let queryString = `
+    select distinct e.amount, c.name from expenses_actual e
+    inner join categories c on e.category_id = c.id
+    where e.user = ?;`;
+    connection.query(queryString, [user], function (err, result) {
+      if (err) throw err;
       cb(result);
     });
   },
