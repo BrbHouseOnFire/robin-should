@@ -1,8 +1,12 @@
 USE robin_db;
 INSERT INTO users (username)
-VALUES('Example User Joe');
+VALUES
+  ('Example User Joe'),
+  ('Tester');
 INSERT INTO expenses_budgeted (user, amount, category_id)
 VALUES
+  ('Tester', 45, 13),
+  ('Tester', 50, 12),
   ('Example User Joe', 45, 13),
   ('Example User Joe', 50, 12),
   ('Example User Joe', 900, 1),
@@ -10,9 +14,12 @@ VALUES
   ('Example User Joe', 100, 71);
 INSERT INTO expenses_budgeted (user, category_id)
 VALUES
+  ('Tester', 9),
   ('Example User Joe', 9);
 INSERT INTO expenses_actual (user, amount, category_id)
 VALUES
+  ('Tester', 75, 13),
+  ('Tester', 40, 12),
   ('Example User Joe', 75, 13),
   ('Example User Joe', 40, 12),
   ('Example User Joe', 900, 1),
@@ -20,6 +27,7 @@ VALUES
   ('Example User Joe', 120, 71);
 INSERT INTO income (user, amount)
 VALUES
+  ('Tester', 5000),
   ('Example User Joe', 8000);
 INSERT INTO categories (name)
 VALUES
