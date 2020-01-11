@@ -155,6 +155,16 @@ let orm = {
       });
     });
   },
+  userBudget: function (user) {
+    let queryString = "select distinct c.name from categories c inner join expenses_budgeted b on b.category_id = c.id where b.user = ?;";
+    connection.query(queryString, [user], function (err, result) {
+      if (err) throw err;
+      console.log(queryString);
+      result.forEach((element) => {
+        console.log(element);
+      });
+    });
+  },
 };
 
 module.exports = orm;
