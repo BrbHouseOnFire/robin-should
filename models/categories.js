@@ -26,7 +26,7 @@ let category = {
   },
   // grab all categories from expenses_budgeted for the user
   userBudget: function(user, cb) {
-    orm.selectWhere("expenses_actual", "user", user, function(res) {
+    orm.userBudget(user, function(res){
       cb(res);
     });
   },

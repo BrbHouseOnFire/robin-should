@@ -78,7 +78,7 @@ router.get("/budget/set/1/:username", (req, res) => {
 // SET BUDGET AMOUNTS PAGE
 router.get("/budget/set/2", (req, res) => {
   // pull all current budget categories
-  category.all((data) => {
+  category.userBudget((data) => {
     let object = {
       category: data
     };
@@ -90,7 +90,7 @@ router.get("/budget/set/2", (req, res) => {
 // VIEW/SUBMIT EXPENSES PAGE
 router.get("/budget/expenses", (req, res) => {
   // pull all current budget categories
-  category.all((data) => {
+  category.userBudget((data) => {
     let categoryObject = {
       category: data
     };
@@ -100,12 +100,12 @@ router.get("/budget/expenses", (req, res) => {
         expense: data
       };
       // render page with passed in budget categories and expenses
-      res.render("budgetpage1", expenseObject);
-    })
+      res.render("budgetpage1", categoryObject, expenseObject);
+    });
   });
 });
 // SEXY RESULT PAGES
-router.get("")
+// router.get("")
 
 // create a new category
 router.post("/api/add/category", function (req, res) {
