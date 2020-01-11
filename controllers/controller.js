@@ -47,7 +47,7 @@ router.get("/", function (req, res) {
 });
 
 
-// SET BUDGET CATEGORIES PAGE
+// SET BUDGET CATEGORIES PAGE 1
 router.get("/budget/set/1/:username", (req, res) => {
   // pull all current budget categories
   let username = req.params.username;
@@ -74,7 +74,7 @@ router.get("/budget/set/1/:username", (req, res) => {
     });
   });
 });
-// SET BUDGET AMOUNTS PAGE
+// SET BUDGET AMOUNTS PAGE 2
 router.get("/budget/set/2/:username", (req, res) => {
   // pull all current budget categories
   let username = req.params.username;
@@ -89,7 +89,7 @@ router.get("/budget/set/2/:username", (req, res) => {
     res.render("budgetpage1", budgetCategories);
   });
 });
-// VIEW/SUBMIT EXPENSES PAGE
+// VIEW/SUBMIT EXPENSES PAGE 3
 router.get("/budget/expenses/:username", (req, res) => {
   let username = req.params.username;
   // pull all expenses for the user
@@ -104,7 +104,7 @@ router.get("/budget/expenses/:username", (req, res) => {
     res.render("expenses", expenseList);
   });
 });
-// SEXY RESULT PAGES
+// SEXY RESULT PAGE(S) 4
 // router.get("")
 
 
