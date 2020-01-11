@@ -26,7 +26,7 @@ let category = {
   },
   // grab all categories from expenses_budgeted for the user
   userBudget: function(user, cb) {
-    orm.selectWhere("expenses_budgeted", "user", user, function(res) {
+    orm.selectWhere("expenses_actual", "user", user, function(res) {
       cb(res);
     });
   },
@@ -34,7 +34,7 @@ let category = {
   deleteBudgetCategory: function(user, categoryid, cb) {
     // the condition passed in should be string for the actual condition
     let condition = 'where user = ' + user + 'and category_id = ' + categoryid;
-    orm.delete("expenses_budgeted", condition, function(res) {
+    orm.delete("expenses_actual", condition, function(res) {
       cb(res);
     });
   }
