@@ -1,70 +1,68 @@
 .bg {
   background-image: url(../img/background1.jpeg);
   height: 100vh;
-  background-size: cover;  
+  background-size: cover;
 }
 
 .landing-box {
-width: 58vh;
-height: 80vh;
-background-color: white;
-opacity: 90%;
-border-radius: 25px;
+  width: 58vh;
+  height: 80vh;
+  background-color: white;
+  opacity: 90%;
+  border-radius: 25px;
 }
 
 .profButtons {
-width: 30vh;
-height: 4vh;
-border-radius: 20px;
-background-color: #66c6ba;
+  width: 30vh;
+  height: 4vh;
+  border-radius: 20px;
+  background-color: #66c6ba;
 }
 
-
 .text1 {
-font-size: 5vh;
+  font-size: 5vh;
 }
 
 .text2 {
-font-size: 2vh;
+  font-size: 2vh;
 }
 
 .text3 {
-font-size: 3vh;
+  font-size: 3vh;
 }
 
-input[type=text] {
-width: 100%;
-height: 3.5;
-box-sizing: border-box;
-border: 2px solid #e2e8f0;
-border-radius: 2px;
+input[type="text"] {
+  width: 100%;
+  height: 3.5;
+  box-sizing: border-box;
+  border: 2px solid #e2e8f0;
+  border-radius: 2px;
 }
 
-input[type=text]:focus {
-background-color: #c8f4de;
-border: 2px solid #649dad;
+input[type="text"]:focus {
+  background-color: #c8f4de;
+  border: 2px solid #649dad;
 }
 
-input[type=number] {
-width: 100%;
-height: 3.5;
-box-sizing: border-box;
-border: 2px solid #e2e8f0;
-border-radius: 2px;
+input[type="number"] {
+  width: 100%;
+  height: 3.5;
+  box-sizing: border-box;
+  border: 2px solid #e2e8f0;
+  border-radius: 2px;
 }
 
-input[type=number]:focus {
-background-color: #c8f4de;
-border: 2px solid #649dad;
+input[type="number"]:focus {
+  background-color: #c8f4de;
+  border: 2px solid #649dad;
 }
 
 .profileButton {
-background-color: #649dad;
-color: white;
-width: 35vh;
-height: 4vh;
-border-radius: 15px;
-
+  background-color: #649dad;
+  color: white;
+  width: 35vh;
+  height: 4vh;
+  border-radius: 15px;
 }
 
 .profileButton:hover {
@@ -94,13 +92,13 @@ size: 25%;
 }
 
 .catButton {
-height: 3.5vh;
-width: 30vh;
-border-radius: 25px;
-margin: .75vh;
-background-color: #649dad;
-color: white;
-text-align: center;
+  height: 3.5vh;
+  width: 30vh;
+  border-radius: 25px;
+  margin: 0.75vh;
+  background-color: #649dad;
+  color: white;
+  text-align: center;
 }
 
 .catButton:hover {
@@ -112,11 +110,11 @@ color: #649dad;
 }
 
 .container1 {
-height: 70vh;
+  height: 70vh;
 }
 
 .container2 {
-height: 18vh;
+  height: 18vh;
 }
 
 .container3 {
@@ -236,6 +234,12 @@ font-family: "Montserrat", sans-serif;
 size: 25%;
 }
 
+.font-three {
+  color: #03414d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
 .font:hover {
 color: #649dad;
 }
@@ -267,4 +271,15 @@ font-size: 15px;
 color: #e6f8f6;
 font-family: "Montserrat", sans-serif;
 font-size: 30px;
+}
+
+.welcome-font-2 {
+  color: #03414d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+}
+
+.box {
+  border: 1px solid #e6f8f6;
+  background-color: #a4e5d9;
 }
