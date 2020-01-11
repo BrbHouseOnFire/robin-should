@@ -30,6 +30,11 @@ let user = {
   //     cb(res);
   //   });
   // },
+  getResults: function(username, cb) {
+    orm.getUserResults1(username, (res) => {
+      cb(res);
+    });
+  },
   expenses: function(username, cb) {
     orm.userExpenses(username, function(res) {
       cb(res);

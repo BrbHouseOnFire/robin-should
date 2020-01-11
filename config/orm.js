@@ -192,6 +192,71 @@ let orm = {
       cb(result);
     });
   },
+  testPromiseKey: function (tableInput, colToSearch, valOfCol) {
+    return new Promise((resolve, reject) => {
+      let queryString = "SELECT * FROM ?? WHERE ?? = ?";
+      connection.query(queryString, [tableInput, colToSearch, valOfCol], function (err, result) {
+        if (err) throw err;
+        resolve(result);
+      });
+    });
+  },
+  getUserResults1: function (user, cb) {
+    let totalSpentQuery = `select * from expenses_actual where user = ? ;`;
+    let expensesActual = {};
+    let totalBudgetQuery = `select * from expenses_budgeted where user = ? ;`;
+    let expensesBudgeted = {};
+    let earningsQuery = `select amount from income where user = ? ;`;
+    let income = 0;
+
+    // UNFINISHED:
+    connection.query(totalSpentQuery, [user], function (err, result) {
+      if (err) throw err;
+      expensesActual = result;
+      console.log("expensesActual: ");
+      console.log(expensesActual);
+
+      connection.query(totalBudgetQuery, [user], function (err, result2) {
+        if (err) throw err;
+        expensesBudgeted = result2;
+        console.log("expensesBudgeted: ");
+        console.log(expensesBudgeted);
+
+        connection.query(earningsQuery, [user], function (err, result3) {
+          if (err) throw err;
+          income = result3;
+          console.log("income: ");
+          console.log(income);
+
+          cb(income);
+        });
+        cb(expensesBudgeted);
+      });
+      cb(expensesActual);
+    });
+
+
+    // total spent
+      // Sum of expenses_actual for user
+    // total budget
+      // Sum of amounts in expenses_budgeted for user
+    // excess budget unspent
+      // math sum(budget category - sum(expenses in the category) where val > 0)
+    // excess expenses
+      // math sum(budget category - sum(expenses in the category) where val < 0)
+    // net budget
+      // math (excess budget - excess expenses)
+  
+    // total budget
+      // same as above
+    // monthly earnings
+      // pull from income table
+    // expected savings
+      // math (monthly earnings - total budget)
+    // actual savings
+      // math (monthly earnings - expected savings + net budget)
+
+  },
 };
 
 module.exports = orm;
