@@ -61,14 +61,12 @@
             <div class="flex flex-row bg-green-8">
 
                 <!-- AREA FOR NEW BUTTONS AND EXISTING BUTTONS -->
-                <div class="w-58 bg-white budg-cont-1 pl-6 pt-6 pb-6 pr-6 border-black border-r-2">
-                    <h4>Categories</h4>
-                    <select id="selectCategory" style="border:2px solid green;">
-                        {{#category}}
-                        <option value="{{id}}">{{name}}</option>
-                        {{/category}}
-                    </select>
-
+                <div class="flex flex-wrap justify-start w-58 bg-white content-start budg-cont-1 pl-6 pt-6 pb-6 pr-6 border-black border-r-2">
+                    {{#each category}}
+                        <button value="{{id}}" class="catButton items-center flex justify-center">
+                            {{name}}
+                        </button>
+                    {{/each}}
                 </div>
 
                 <!-- AREA FOR THE SELECTED BUTTONS -->

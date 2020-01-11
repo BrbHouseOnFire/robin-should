@@ -1,5 +1,5 @@
 .bg {
-  background-image: url(../img/background1.jpeg);
+  background-image: url(background1.jpeg);
   height: 100vh;
   background-size: cover;  
 }
@@ -17,7 +17,6 @@ width: 30vh;
 height: 4vh;
 border-radius: 20px;
 background-color: #66c6ba;
-color: white;
 }
 
 
@@ -60,10 +59,6 @@ border: 2px solid #649dad;
   border: 3px solid #03414d;
 }
 
-.profButtons:hover {
-  border: 3px solid #03414d;
-}
-
 .button-border:hover {
   border-color: #649dad;
 }
@@ -81,9 +76,23 @@ border: 2px solid #649dad;
 }
 
 .font {
-  color: #03414d;
+  color: #a8a8a8;
   font-family: "Montserrat", sans-serif;
   size: 25%;
+}
+
+.catButton {
+  height: 3.5vh;
+  width: 30vh;
+  border-radius: 25px;
+  margin: .75vh;
+  background-color: #649dad;
+  color: white;
+  text-align: center;
+}
+
+.catButton:hover {
+  border: 3px solid #03414d;
 }
 
 .font:hover {
@@ -99,11 +108,12 @@ height: 70vh;
   }
 
 .container3 {
-  height: 57vh;
+  height: 58vh;
 }
 
 .budg-cont-1 {
   width: 70%;
+  height: 58vh
 }
 
 .budg-cont-2 {
