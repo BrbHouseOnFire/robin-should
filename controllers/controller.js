@@ -106,32 +106,12 @@ router.get("/budget/expenses/:username", (req, res) => {
 router.get("/lifestyle/1/:username", (req, res) => {
   let username = req.params.username;
   user.getResults(username, (data) => {
-  
-    // total spent
-      // Sum of expenses_actual for user
-    // total budget
-      // Sum of amounts in expenses_budgeted for user
-    // excess budget unspent
-      // math sum(budget category - sum(expenses in the category) where val > 0)
-    // excess expenses
-      // math sum(budget category - sum(expenses in the category) where val < 0)
-    // net budget
-      // math (excess budget - excess expenses)
-  
-    // total budget
-      // same as above
-    // monthly earnings
-      // pull from income table
-    // expected savings
-      // math (monthly earnings - total budget)
-    // actual savings
-      // math (monthly earnings - expected savings + net budget)
-    // let resultObj = {
-    //   // stuff
-    // };
-    resultObj.userName = username;
-    console.log(resultObj);
-    res.render("making-money", resultObj);
+    
+    // console.log("user.getResults data:");
+    // console.log(data);
+    // console.log("----------");
+
+    res.render("making-money", data);
   });
 });
 
