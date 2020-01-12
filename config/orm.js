@@ -207,54 +207,105 @@ let orm = {
     let totalBudgetQuery = `select * from expenses_budgeted where user = ? ;`;
     let expensesBudgeted = {};
     let earningsQuery = `select amount from income where user = ? ;`;
-    let income = 0;
+    let income;
+    let resultObj ={};
 
-    // UNFINISHED:
     connection.query(totalSpentQuery, [user], function (err, result) {
       if (err) throw err;
       expensesActual = result;
-      console.log("expensesActual: ");
-      console.log(expensesActual);
 
       connection.query(totalBudgetQuery, [user], function (err, result2) {
         if (err) throw err;
         expensesBudgeted = result2;
-        console.log("expensesBudgeted: ");
-        console.log(expensesBudgeted);
 
         connection.query(earningsQuery, [user], function (err, result3) {
           if (err) throw err;
-          income = result3;
-          console.log("income: ");
-          console.log(income);
+          // console.log("result3");
+          // console.log(result3);
+          // console.log("result3.amount");
+          // console.log(result3.amount);
+          income = result3[0].amount;
 
-          cb(income);
+
+          // total spent
+          let totalSpent = 0;
+            // Sum of expenses_actual for user
+          expensesActual.forEach(element => {
+            totalSpent += element.amount;
+          });
+          // total budget
+          let totalBudget = 0;
+            // Sum of amounts in expenses_budgeted for user
+          expensesBudgeted.forEach(element => {
+            totalBudget += element.amount;
+          });
+          // excess budget unspent
+            // math sum(budget category - sum(expenses in the category) where val > 0)
+          let excessBudget = 0;
+          // excess expenses
+            // math sum(budget category - sum(expenses in the category) where val < 0)
+          let excessExpenses = 0;
+
+          expensesBudgeted.forEach(category => {
+            // hold the current amount of expenditures for this budget category
+            let thisExpenseSum = 0;
+            // console.log("category.category_id")
+            // console.log(category.category_id)
+            expensesActual.forEach(exp => {
+              // if the expense is in this category
+              // console.log("exp.category_id")
+              // console.log(exp.category_id)
+              if (category.category_id === exp.category_id) {
+                // add the expense to the total for this category
+                thisExpenseSum += exp.amount;
+              }
+            });
+            // if the expenses exceed the budgeted amount for the category
+            if (thisExpenseSum > category.amount) {
+              // tally up the excess
+              excessExpenses += (thisExpenseSum - category.amount);
+            }
+            // if the expenses are within the budget for the category
+            else if (thisExpenseSum < category.amount) {
+              // store this excess for the budget category
+              excessBudget += (category.amount - thisExpenseSum);
+            }
+          });
+
+
+          // net budget
+            // math (excess budget - excess expenses)
+          let netBudget = excessBudget - excessExpenses;
+          // monthly earnings
+            // pull from income table
+          let monthlyEarnings = income;
+          // expected savings
+            // math (monthly earnings - total budget)
+          let expectedSavings = monthlyEarnings - totalBudget;
+          // actual savings
+            // math (monthly earnings - expected savings + net budget)
+          let actualSavings = monthlyEarnings - totalBudget  + netBudget;
+
+          resultObj = {
+            user: user,
+            totalSpent: totalSpent,
+            totalBudget: totalBudget,
+            excessBudget: excessBudget,
+            excessExpenses: excessExpenses,
+            monthlyEarnings: monthlyEarnings,
+            expectedSavings: expectedSavings,
+            actualSavings: actualSavings
+          };
+          console.log("userResults: ");
+          console.log(resultObj);
+          console.log("----------");
+
+          cb(resultObj);
         });
-        cb(expensesBudgeted);
       });
-      cb(expensesActual);
     });
 
 
-    // total spent
-      // Sum of expenses_actual for user
-    // total budget
-      // Sum of amounts in expenses_budgeted for user
-    // excess budget unspent
-      // math sum(budget category - sum(expenses in the category) where val > 0)
-    // excess expenses
-      // math sum(budget category - sum(expenses in the category) where val < 0)
-    // net budget
-      // math (excess budget - excess expenses)
-  
-    // total budget
-      // same as above
-    // monthly earnings
-      // pull from income table
-    // expected savings
-      // math (monthly earnings - total budget)
-    // actual savings
-      // math (monthly earnings - expected savings + net budget)
 
   },
 };

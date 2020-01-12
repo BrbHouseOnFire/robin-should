@@ -32,6 +32,9 @@ let user = {
   // },
   getResults: function(username, cb) {
     orm.getUserResults1(username, (res) => {
+      // console.log("orm.getUserResults res:");
+      // console.log(res)
+      // console.log("----------");
       cb(res);
     });
   },
