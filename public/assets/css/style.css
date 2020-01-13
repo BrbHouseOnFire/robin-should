@@ -1,72 +1,90 @@
 .bg {
   background-image: url(../img/background1.jpeg);
   height: 100vh;
-  background-size: cover;
+  background-size: cover;  
 }
 
 .landing-box {
-  width: 58vh;
-  height: 80vh;
-  background-color: white;
-  opacity: 90%;
-  border-radius: 25px;
+width: 58vh;
+height: 80vh;
+background-color: white;
+opacity: 90%;
+border-radius: 25px;
 }
 
 .profButtons {
-  width: 30vh;
-  height: 4vh;
-  border-radius: 20px;
-  background-color: #66c6ba;
-}
-
-.profButtons:hover {
-  border: 3px solid #03414d;
+width: 30vh;
+height: 4vh;
+border-radius: 20px;
+background-color: #66c6ba;
 }
 
 .text1 {
-  font-size: 5vh;
+font-size: 5vh;
 }
 
 .text2 {
-  font-size: 2vh;
+font-size: 2vh;
 }
 
 .text3 {
-  font-size: 3vh;
+font-size: 3vh;
 }
 
-input[type="text"] {
-  width: 100%;
-  height: 3.5;
-  box-sizing: border-box;
-  border: 2px solid #e2e8f0;
-  border-radius: 2px;
+.text4 {
+font-size: 2.25vh;
+text-decoration: underline;
 }
 
-input[type="text"]:focus {
-  background-color: #c8f4de;
-  border: 2px solid #649dad;
+.banner1 {
+padding-right: 20vw;
+padding-left: 20vw;
 }
 
-input[type="number"] {
-  width: 100%;
-  height: 3.5;
-  box-sizing: border-box;
-  border: 2px solid #e2e8f0;
-  border-radius: 2px;
+.banner-font2 {
+color: gray;
 }
 
-input[type="number"]:focus {
-  background-color: #c8f4de;
-  border: 2px solid #649dad;
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+input[type=text] {
+width: 100%;
+height: 3.5;
+box-sizing: border-box;
+border: 2px solid #e2e8f0;
+border-radius: 2px;
+}
+
+input[type=text]:focus {
+background-color: #c8f4de;
+border: 2px solid #649dad;
+}
+
+input[type=number] {
+width: 100%;
+height: 3.5;
+box-sizing: border-box;
+border: 2px solid #e2e8f0;
+border-radius: 2px;
+}
+
+input[type=number]:focus {
+background-color: #c8f4de;
+border: 2px solid #649dad;
 }
 
 .profileButton {
-  background-color: #649dad;
-  color: white;
-  width: 35vh;
-  height: 4vh;
-  border-radius: 15px;
+background-color: #649dad;
+color: white;
+width: 35vh;
+height: 4vh;
+border-radius: 15px;
+
 }
 
 .profileButton:hover {
@@ -96,13 +114,13 @@ size: 25%;
 }
 
 .catButton {
-  height: 3.5vh;
-  width: 30vh;
-  border-radius: 25px;
-  margin: 0.75vh;
-  background-color: #649dad;
-  color: white;
-  text-align: center;
+height: 3.5vh;
+width: 30vh;
+border-radius: 25px;
+margin: .75vh;
+background-color: #649dad;
+color: white;
+text-align: center;
 }
 
 .catButton:hover {
@@ -114,26 +132,20 @@ color: #649dad;
 }
 
 .container1 {
-  height: 70vh;
+height: 70vh;
 }
 
 .container2 {
-  height: 18vh;
+height: 18vh;
 }
 
 .container3 {
 height: 58vh;
 }
 
-.container4 {
-  width: 100vh;
-}
-
 .budg-cont-1 {
 width: 70%;
-height: 58vh;
-overflow: scroll;
-overflow-x: hidden;
+height: 58vh
 }
 
 .budg-cont-3 {
@@ -210,6 +222,12 @@ height: 48vw;
 font-family: "Heebo", sans-serif;
 }
 
+.font-jockey {
+font-family: 'Jockey One', sans-serif;
+}
+
+
+
 .f-color-8 {
 color: #03414d;
 }
@@ -236,12 +254,6 @@ size: 25%;
 color: #e6f8f6;
 font-family: "Montserrat", sans-serif;
 size: 25%;
-}
-
-.font-three {
-  color: #03414d;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
 }
 
 .font:hover {
@@ -275,15 +287,4 @@ font-size: 15px;
 color: #e6f8f6;
 font-family: "Montserrat", sans-serif;
 font-size: 30px;
-}
-
-.welcome-font-2 {
-  color: #03414d;
-  font-family: "Montserrat", sans-serif;
-  font-size: 30px;
-}
-
-.box {
-  border: 1px solid #e6f8f6;
-  background-color: #a4e5d9;
 }
