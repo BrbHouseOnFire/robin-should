@@ -19,6 +19,10 @@
   background-color: #66c6ba;
 }
 
+.profButtons:hover {
+  border: 3px solid #03414d;
+}
+
 .text1 {
   font-size: 5vh;
 }
