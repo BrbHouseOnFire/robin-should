@@ -27,42 +27,9 @@
 
             <!---------------- CONTAINER HOLDING FORMS ---------------->
             <div class="budg-cont-4 flex flex-col flex-none content-start justify-start">
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
-                <form class="text2 pl-4 pt-3 pb-1 pr-10">
-                    Category Here <input type="number" id="id"></input>
-                </form>
+                {{#each userCategory}}
+                    {{> users/budgetform-block}}
+                {{/each}}
             </div>
         </div>
     </section>
@@ -70,7 +37,7 @@
     <!-- BIG SUBMIT BUTTON -->
     <div class="text-right pt-3 mr-64">
         <button class="budg-button text2">
-            CONFIRM CATEGORIES
+            SAVE BUDGET
         </button>
     </div>
 </section>

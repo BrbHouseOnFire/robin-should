@@ -82,10 +82,13 @@ router.get("/budget/set/2/:username", (req, res) => {
     let budgetCategories = {
       userCategory: data
     };
+    let categoryObj = {
+      category: data
+    };
     categoryObj.userName = username;
     console.log(budgetCategories);
     // render page with passed in budget categories
-    res.render("budgetpage1", budgetCategories);
+    res.render("budgetpage2", budgetCategories);
   });
 });
 // VIEW/SUBMIT EXPENSES PAGE 3

@@ -1,6 +1,15 @@
 // Functions for On-clicks, routes, and page info linked from the main handlebar.
 //let path = require("path");
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
+$(document).ready(function(){
+
+  $("#confirmCategories").on("click", "#budgetSave", function() {
+    // console.log("check check check")
+    window.location.href = "/budget/set/2/:username";
+  })
+  
+});
+
 $(function() {
   let profileName = document.getElementById("userName");
   let profileIncome = document.getElementById("monthlyIncome");
@@ -97,3 +106,5 @@ $(function() {
     });
   });
 });
+
+
