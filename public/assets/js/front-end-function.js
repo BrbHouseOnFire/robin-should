@@ -3,34 +3,29 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function(){
 
-// ------ ON CLICK TO SECOND BUDGET PAGE ------ //
-  $("#confirmCategories").on("click", "#budgetSave", function() {
+  // ------ ON CLICK TO SECOND BUDGET PAGE ------ //
+    $("#confirmCategories").on("click", "#budgetSave", function() {
+  
+      // ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
+      let htmlPath = window.location.href;
+      let userName = htmlPath.substring(htmlPath.lastIndexOf('/') + 1);
+      window.location.href = `/budget/set/2/${userName}`;
+      
+    })
+  // ------ ON CLICK TO SECOND BUDGET PAGE ------ //
 
-    // ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
-    let htmlPath = window.location.href
-    let userName = htmlPath.replace("http://localhost:8080/budget/set/1/", "");
-    window.location.href = `/budget/set/2/${userName}`;
-    
-  })
-// ------ ON CLICK TO SECOND BUDGET PAGE ------ //
 
-});
+  });
 
 $(function() {
   let profileName = document.getElementById("userName");
   let profileIncome = document.getElementById("monthlyIncome");
   let profile = document.getElementById("createProfile");
-  document.body.addEventListener(
-    "click",
-    function(evt) {
-      if (
-        evt.target.className === "profButtons text-heebo text-heebo mt-2 mb-2"
-      ) {
+  document.body.addEventListener("click", function(evt) {
+      if (evt.target.className === "profButtons text-heebo text-heebo mt-2 mb-2") {
         alert();
       }
-    },
-    false
-  );
+  });
 
   /*
   profile.addEventListener('click', function () {
@@ -40,7 +35,7 @@ $(function() {
   });*/
 
   $("#home").click(function() {
-    window.location.href = "/";
+    window.location.href = "/budget/=";
   });
 
   $("#budget").click(function() {
@@ -48,15 +43,15 @@ $(function() {
   });
 
   $("#expenses").click(function() {
-    window.location.href = "/budget/expenses/username";
+    window.location.href = "/budget/expenses/:username";
   });
 
   $("#createProfile").click(function() {
     console.log("Create Profile");
 
-    var user = $("#userName").val();
-    var data = { userName: user };
-    var jsonData = JSON.stringify(data);
+    let user = $("#userName").val();
+    let data = { userName: user };
+    let jsonData = JSON.stringify(data);
     $.ajax({
       url: "/api/add/user",
       type: "POST",
@@ -112,5 +107,7 @@ $(function() {
     });
   });
 });
+
+
 
 
