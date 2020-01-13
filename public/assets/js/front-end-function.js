@@ -3,11 +3,17 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function(){
 
+// ------ ON CLICK TO SECOND BUDGET PAGE ------ //
   $("#confirmCategories").on("click", "#budgetSave", function() {
-    // console.log("check check check")
-    window.location.href = "/budget/set/2/:username";
+
+    // ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
+    let htmlPath = window.location.href
+    let userName = htmlPath.replace("http://localhost:8080/budget/set/1/", "");
+    window.location.href = `/budget/set/2/${userName}`;
+    
   })
-  
+// ------ ON CLICK TO SECOND BUDGET PAGE ------ //
+
 });
 
 $(function() {
