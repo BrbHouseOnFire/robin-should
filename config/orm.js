@@ -187,9 +187,26 @@ let orm = {
     select distinct e.amount, c.name, c.id from expenses_actual e
     inner join categories c on e.category_id = c.id
     where e.user = ?;`;
+    let queryString2 = `select distinct name, id from expenses_budgeted where user = ? ;`;
+    // grab expenses
     connection.query(queryString, [user], function (err, result) {
       if (err) throw err;
-      cb(result);
+      let expenses = result;
+      // console.log(expenses);
+      // grab budget categories
+      connection.query(queryString2, [user], function (err, result) {
+        if (err) throw err;
+        let categories = result;
+        // console.log(categories);
+
+        let finalObj = {
+          expenses: expenses,
+          categories: categories
+        }
+        console.log(finalObj);
+        cb(finalObj);
+      });
+      // cb(result);
     });
   },
   testPromiseKey: function (tableInput, colToSearch, valOfCol) {
@@ -210,21 +227,22 @@ let orm = {
     let income;
     let resultObj ={};
 
+    // pull all from expenses_actual for the user
     connection.query(totalSpentQuery, [user], function (err, result) {
       if (err) throw err;
       expensesActual = result;
 
+      // pull all from expenses_budgeted for the user
       connection.query(totalBudgetQuery, [user], function (err, result2) {
         if (err) throw err;
         expensesBudgeted = result2;
 
+        // pull amount from income for the user
         connection.query(earningsQuery, [user], function (err, result3) {
           if (err) throw err;
-          // console.log("result3");
-          // console.log(result3);
-          // console.log("result3.amount");
-          // console.log(result3.amount);
           income = result3[0].amount;
+          let categoryArr = [];
+          let index = 0;
 
 
           // total spent
@@ -296,6 +314,10 @@ let orm = {
             monthlyEarnings: monthlyEarnings,
             expectedSavings: expectedSavings,
             actualSavings: actualSavings
+
+
+
+
           };
           console.log("userResults: ");
           console.log(resultObj);
