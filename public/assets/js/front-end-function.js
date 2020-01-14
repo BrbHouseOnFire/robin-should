@@ -48,6 +48,29 @@ $(document).ready(function(){
     });
     location.reload();
   })
+  $("#deleteZone").on("click", ".catButton", function() {
+    // console.log(this.value);
+    let deleteMe = {
+      id: this.value,
+      user: userName
+    };
+    let url = "/api/budget/" + this.value;
+    let jsonData = JSON.stringify(deleteMe);
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      contentType: "application/json; charset=utf-8",
+      data: jsonData,
+      dataType: "json",
+      success: function(data) {
+        console.log(data);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+    location.reload();
+  })
 
   // ------ ON CLICK TO SECOND BUDGET PAGE ------ //
   $("#confirmCategories").on("click", "#budgetSave", function() {
