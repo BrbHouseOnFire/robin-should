@@ -1,12 +1,12 @@
-<section class="bg-green-7 h-screen">
+<section class="h-screen">
     <!------------------ START NAV BAR ------------------>
     {{> users/navbar-block}}
 
     <!------------------ END NAV BAR ------------------>
     
-    <section class="container px-10 mx-auto bg-green-7">
-        <h1 class="pt-8 pb-8 welcome-font-2">Am I even making money?!</h1>
-        <div class="flex font-three">
+    <section class="lex flex-col container1 bg-gray-400 ml-64 mr-64 mt-3">
+        <h1 class="flex bg-green-10 container2 items-end text7 pl-4">Am I even making money?!</h1>
+        <div class="flex font-three border-b border-solid border-gray-500">
             <div class="table-content box pt-8 p-8 pr-20">
                 <strong>Total Spent</strong><br />${{totalSpent}}
             </div>
@@ -23,7 +23,7 @@
                 <strong>Net Budget</strong><br />${{netBudget}}
             </div>
         </div>
-        <div class="flex font-three">
+        <div class="flex font-three border-b border-solid border-gray-500">
             <div class="table-content box pt-8 p-8 pr-32">
                 <strong>Total Budget</strong><br />${{totalBudget}}
             </div>
@@ -40,9 +40,9 @@
     </section>
 
     {{!-- Ongoing Totals --}}
-    <section class="container px-10 mx-auto bg-green-7">
+    {{!-- <section class="container px-10 mx-auto bg-green-7">
         <h1 class="pt-8 pb-8 welcome-font-2">Where am I losing my money!?</h1>
-        <div class="flex font-three">
+        <div class="flex font-three"> --}}
 
             {{!-- Column 1: Category --}}
                 {{!-- Column Header --}}
