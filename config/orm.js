@@ -175,7 +175,7 @@ let orm = {
     });
   },
   userBudget: function (user, cb) {
-    let queryString = `select distinct c.name from categories c 
+    let queryString = `select distinct c.name, c.id from categories c 
     inner join expenses_budgeted b on b.category_id = c.id where b.user = ?;`;
     connection.query(queryString, [user], function (err, result) {
       if (err) throw err;
