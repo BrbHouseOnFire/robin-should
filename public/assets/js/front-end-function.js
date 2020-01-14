@@ -179,12 +179,13 @@ $(document).ready(function(){
       dataType: "json",
       success: function(data) {
         console.log(data);
+        location.reload();
       },
       error: function(error) {
         console.log(error);
       }
     });
-    location.reload();
+
   });
 
 });
