@@ -278,7 +278,7 @@ router.delete("/api/category/:id", function (req, res) {
 // delete a user's budget category by ID
 router.delete("/api/budget/:id", function (req, res) {
   let condition = `id = ${req.params.id}`;
-  expenses.delete(condition, function (result) {
+  budget.delete(condition, function (result) {
     if (result.affectedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
@@ -292,7 +292,7 @@ router.delete("/api/expenses/:id", function (req, res) {
 // router.delete("/api/expenses/:user/:id", function (req, res) {
   // let condition = `id = ${req.params.id} AND user = ${req.params.user}`;
   let condition = `id = ${req.params.id}`;
-  expenses.delete(condition, function (result) {
+  expense.delete(condition, function (result) {
     if (result.affectedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
