@@ -119,7 +119,7 @@ $(document).ready(function(){
 
 
 
-  // ------ POST EXPENSES ------ //
+  // ------ UPDATE BUDGET ------ //
   $(".expenseContainer").on("click", ".submitExpense", function(event) {
     event.preventDefault();
     // console.log("hellwo"
@@ -136,8 +136,8 @@ $(document).ready(function(){
     };
     let jsonData = JSON.stringify(newCategory);
     $.ajax({
-      url: "/api/add/expense",
-      type: "POST",
+      url: `/api/budget/${catID}`,
+      type: "PUT",
       contentType: "application/json; charset=utf-8",
       data: jsonData,
       dataType: "json",
@@ -149,6 +149,36 @@ $(document).ready(function(){
         console.log(error);
       }
     })
+  });
+
+
+
+ // ------ SAVE EXPENSES ------ //
+  $("#saveExpense").click(function() {
+    // console.log("checkecafj");
+    let expenseVal = $("#expenseAmount").val();
+    console.log(expenseVal);
+    let expenseCat = $("#exCategory").val();
+    let newCategory = {
+      category_id: expenseCat,
+      user: userName,
+      amount: expenseVal
+    };
+    let jsonData = JSON.stringify(newCategory);
+    $.ajax({
+      url: "/api/add/expense",
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      data: jsonData,
+      dataType: "json",
+      success: function(data) {
+        console.log(data);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+    location.reload();
   });
 
 });
