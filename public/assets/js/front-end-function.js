@@ -3,16 +3,37 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function(){
 
+  // ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
+  let htmlPath = window.location.href;
+  let userName = htmlPath.substring(htmlPath.lastIndexOf('/') + 1);
+  // ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
+
+
+
+  // ------ NAV BAR ON CLICKS ------ //
+    $("#home").click(function() {
+      window.location.href = `/lifestyle/1/${userName}`;
+      console.log("home");
+    })
+
+    $("#budget").click(function() {
+      window.location.href = `/budget/set/1/${userName}`;
+    })
+
+    $("#expenses").click(function() {
+      window.location.href = `/budget/expenses/${userName}`;
+    })
+
   // ------ ON CLICK TO SECOND BUDGET PAGE ------ //
     $("#confirmCategories").on("click", "#budgetSave", function() {
-  
-      // ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
-      let htmlPath = window.location.href;
-      let userName = htmlPath.substring(htmlPath.lastIndexOf('/') + 1);
       window.location.href = `/budget/set/2/${userName}`;
-      
     })
-  // ------ ON CLICK TO SECOND BUDGET PAGE ------ //
+
+
+  // ------ ON CLICK TO SAVE BUDGET ------ //
+    $("#saveBudget").on("click", "#saveButton", function() {
+      window.location.href = `/lifestyle/1/${userName}`;
+    })
 
 
   });
@@ -34,17 +55,17 @@ $(function() {
 
   });*/
 
-  $("#home").click(function() {
-    window.location.href = "/budget/=";
-  });
+  // $("#home").click(function() {
+  //   window.location.href = "/lifestyle/1/:username";
+  // });
 
-  $("#budget").click(function() {
-    window.location.href = "/budget/set/1/:username";
-  });
+  // $("#budget").click(function() {
+  //   window.location.href = "/budget/set/1/:username";
+  // });
 
-  $("#expenses").click(function() {
-    window.location.href = "/budget/expenses/:username";
-  });
+  // $("#expenses").click(function() {
+  //   window.location.href = "/budget/expenses/:username";
+  // });
 
   $("#createProfile").click(function() {
     console.log("Create Profile");
