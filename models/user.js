@@ -24,6 +24,11 @@ let user = {
       cb(res);
     });
   },
+  addIncome: function(cols, vals, cb) {
+    orm.create("income", cols, vals, function(res) {
+      cb(res);
+    });
+  },
   // grab all categories from expenses_budgeted for the user
   // budget: function(username, cb) {
   //   orm.selectWhere("expenses_budgeted", "user", username, function(res) {

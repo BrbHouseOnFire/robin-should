@@ -37,11 +37,12 @@ const budget = require("../models/budgets.js");
 // Create all our routes and set up logic within those routes where required.
 // default landing page
 router.get("/", function (req, res) {
+  console.log("route: /");
   user.all(function (data) {
     let hbsObject = {
       user: data
     };
-    console.log(hbsObject);
+    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
@@ -55,18 +56,18 @@ router.get("/budget/set/1/:username", (req, res) => {
     let categoryObj = {
       category: data
     };
-    console.log(categoryObj);
+    // console.log(categoryObj);'
     category.userBudget(username, function (data) {
       let budgetCategories = {
         userCategory: data
       };
-      console.log(budgetCategories);
+      // console.log(budgetCategories);
       let fullObj = {
         fullCategoryList: categoryObj,
         userCategoryList: budgetCategories,
         userName: username
       };
-      console.log(fullObj);
+      // console.log(fullObj);
       // categoryObj.personName = username;
       // render page with passed in budget categories
       res.render("budgetpage1", fullObj);
@@ -86,7 +87,7 @@ router.get("/budget/set/2/:username", (req, res) => {
       category: data
     };
     categoryObj.userName = username;
-    console.log(budgetCategories);
+    // console.log(budgetCategories);
     // render page with passed in budget categories
     res.render("budgetpage2", budgetCategories);
   });
@@ -94,13 +95,14 @@ router.get("/budget/set/2/:username", (req, res) => {
 // VIEW/SUBMIT EXPENSES PAGE 3
 router.get("/budget/expenses/:username", (req, res) => {
   let username = req.params.username;
+  console.log("route: /budget/expenses/" + username);
   // pull all expenses for the user
   user.expenses(username, function (data) {
     let expenseList = {
       expense: data
     };
     expenseList.userName = username;
-    console.log(expenseList);
+    // console.log(expenseList);
     // render page with passed in budget categories
     res.render("expenses", expenseList);
   });
@@ -108,6 +110,7 @@ router.get("/budget/expenses/:username", (req, res) => {
 // SEXY RESULT PAGE(S) 4
 router.get("/lifestyle/1/:username", (req, res) => {
   let username = req.params.username;
+  console.log("route: /lifestyle/1/" + username);
   user.getResults(username, (data) => {
     let renderObject = data;
     renderObject.userName = username;
@@ -175,8 +178,19 @@ router.post("/api/add/user", function (req, res) {
       req.body.userName//, req.body.otherColumn
     ],
     function (result) {
+      user.addIncome(
+        [
+          "user", "amount" //, "otherColumn"
+        ],
+        [
+          req.body.userName, req.body.amount//, req.body.otherColumn
+        ],
+        function (result) {
+          // Send back the ID of the new user
+          res.json({ id: result.insertId });
+        });
       // Send back the ID of the new user
-      res.json({ id: result.insertId });
+      // res.json({ id: result.insertId });
     });
 });
 
