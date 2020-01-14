@@ -36,6 +36,11 @@ font-size: 2.25vh;
 text-decoration: underline;
 }
 
+.text5 {
+  font-size: 3.75vh;
+  color: white;
+}
+
 .banner1 {
 padding-right: 20vw;
 padding-left: 20vw;
@@ -44,6 +49,10 @@ padding-left: 20vw;
 .banner-font2 {
 color: gray;
 }
+
+.font-color1 {
+  color: #454545;
+  }
 
 .center {
 display: block;
@@ -101,10 +110,17 @@ border-color: #878e96;
 }
 
 .budg-button {
+color: white;
+font-weight: bold;
 height: 5vh;
 width: 30vh;
 border-radius: 50px;
-background-color: #649dad;
+background-color: #568c9c;
+box-shadow: 2px 3px 7px 2px #adadad;
+}
+
+.budg-button:hover {
+  border: 3px solid #03414d;
 }
 
 .font {
@@ -118,9 +134,10 @@ height: 3.5vh;
 width: 30vh;
 border-radius: 25px;
 margin: .75vh;
-background-color: #649dad;
+background-color: #568c9c;
 color: white;
 text-align: center;
+box-shadow: 1.75px 2px 3px .5px gray;
 }
 
 .catButton:hover {
@@ -133,10 +150,15 @@ color: #649dad;
 
 .container1 {
 height: 70vh;
+border-radius: 25px;
+border: 1px solid #adadad;
+box-shadow: 3px 4px 10px 1px #adadad;
 }
 
 .container2 {
-height: 18vh;
+height: 8vh;
+border-top-left-radius: 22px;
+border-top-right-radius: 22px;
 }
 
 .container3 {
@@ -152,7 +174,7 @@ height: 58vh;
 
 .budg-cont-1 {
 width: 70%;
-height: 58vh;
+height: 63vh;
 overflow: scroll;
 overflow-x: hidden;
 }
@@ -223,6 +245,16 @@ background-color: #72dfd0;
 background-color: #03414d;
 }
 
+.bg-green-9 {
+background-color: #03414d;
+opacity: 70%;
+}
+
+.bg-green-10 {
+  background-color: #03414d;
+  opacity: 40%;
+  }
+
 .height-auto {
 height: 48vw;
 }
@@ -235,18 +267,12 @@ font-family: "Heebo", sans-serif;
 font-family: 'Jockey One', sans-serif;
 }
 
-
-
 .f-color-8 {
 color: #03414d;
 }
 
 .border-color-8 {
 border-color: #03414d;
-}
-
-.bg-two {
-background-color: #03414d;
 }
 
 .bg-white {
