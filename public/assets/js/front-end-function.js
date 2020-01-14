@@ -41,7 +41,8 @@ $(document).ready(function(){
     console.log("Create Profile");
 
     let user = $("#userName").val();
-    let data = { userName: user };
+    let amount = $("#monthlyIncome").val();
+    let data = { userName: user, amount: amount };
     let jsonData = JSON.stringify(data);
     $.ajax({
       url: "/api/add/user",
