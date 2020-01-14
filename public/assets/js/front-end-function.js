@@ -61,7 +61,7 @@ $(document).ready(function(){
   })
 
 
-    // ------ CREATE NEW PROFILE ------ //
+  // ------ CREATE NEW PROFILE ------ //
   $("#createProfile").click(function() {
     console.log("Create Profile");
 
@@ -86,7 +86,7 @@ $(document).ready(function(){
   });
 
 
-    // ------ ALREADY CREATED PROFILES ------ //
+  // ------ ALREADY CREATED PROFILES ------ //
   $(this).on("click", "#profile", function() {
     let returnUser = $(this).text();
     window.location.href = `/lifestyle/1/${returnUser}`;
@@ -94,13 +94,20 @@ $(document).ready(function(){
   });
 
 
-  $("#saveExpense").click(function() {
-    console.log("checkecafj");
-    let expenseVal = $("#expenseAmount").val();
-    console.log(expenseVal);
-    let expenseCat = $("#exCategory").val();
+
+
+  // ------ POST EXPENSES ------ //
+  $(".expenseContainer").on("click", ".submitExpense", function(event) {
+    event.preventDefault();
+    // console.log("hellwo"
+    let catID = this.id;
+    let expenseVal = $(`#${catID}`).prev().val();
+    // $(`#${catID}`).parent().val();
+    // console.log()
+    console.log($(`#${catID}`).prev().val());
+
     let newCategory = {
-      category_id: expenseCat,
+      category_id: catID,
       user: userName,
       amount: expenseVal
     };
@@ -118,10 +125,8 @@ $(document).ready(function(){
       error: function(error) {
         console.log(error);
       }
-    }).then();
-
+    })
   });
-
 
 });
 

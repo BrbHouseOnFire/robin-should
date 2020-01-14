@@ -87,7 +87,7 @@ router.get("/budget/set/2/:username", (req, res) => {
       category: data
     };
     categoryObj.userName = username;
-    // console.log(budgetCategories);
+    console.log(budgetCategories);
     // render page with passed in budget categories
     res.render("budgetpage2", budgetCategories);
   });
