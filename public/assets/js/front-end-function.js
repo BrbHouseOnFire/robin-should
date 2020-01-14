@@ -25,12 +25,29 @@ $(document).ready(function(){
 
 
   // ------ FIRST BUDGET PAGE ------ //
-  $(".catButton").on("click", "#buttonZone", function() {
-    console.log(this);
+  $("#buttonZone").on("click", ".catButton", function() {
+    console.log(this.value);
+    let newCategory = {
+      category_id: this.value,
+      user: userName,
+      amount: 0
+    };
+    let jsonData = JSON.stringify(newCategory);
+    $.ajax({
+      url: "/api/add/budget", //budget.create
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      data: jsonData,
+      dataType: "json",
+      success: function(data) {
+        console.log(data);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+    location.reload();
   })
-  // $(".catButton").click(function() {
-  //   console.log(this);
-  // })
 
   // ------ ON CLICK TO SECOND BUDGET PAGE ------ //
   $("#confirmCategories").on("click", "#budgetSave", function() {

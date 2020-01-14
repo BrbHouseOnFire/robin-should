@@ -166,6 +166,20 @@ router.post("/api/add/expense", function (req, res) {
     });
 });
 
+// Create a new budget
+router.post("/api/add/budget", function (req, res) {
+  console.log(req.body);
+  // Add new user expenses
+  let userCat = req.body;
+  budget.create(
+    ["user", "amount", "category_id"],
+    [userCat.user, userCat.amount, userCat.category_id],
+    function (result) {
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    });
+});
+
 // create a new user.
 router.post("/api/add/user", function (req, res) {
   console.log("/api/add/user");
