@@ -1,4 +1,4 @@
-<section class="bg-two h-screen">
+<section class="h-screen">
     <!------------------ START NAV BAR ------------------>
     {{> users/navbar-block}}
 
@@ -19,20 +19,24 @@
         </section>
 
     <!---------------- OVERALL CONTAINER FOR PAGE CONTENT ---------------->
-    <section class="bg-green-3 ml-64 mr-64 mt-3">
-        <div class="budg-cont-3 bg-green-4 pt-4 pl-6 pb-6">
-            <div class="text1 border-black border-b-2 mb-4">
-                ALLOCATE BUDGET BELOW
+    
+        <section class="flex flex-col container1 bg-gray-400 ml-64 mr-64 mt-3">
+            <div class="flex bg-green-10 container2 items-end">
+                <span class="text5 font-heebo pl-4 align-text-bottom">Allocate budget below, {{userName}}</span>
             </div>
 
             <!---------------- CONTAINER HOLDING FORMS ---------------->
-            <div class="budg-cont-4 flex flex-col flex-none content-start justify-start">
-                {{#each userCategory}}
-                    {{> users/budgetform-block}}
-                {{/each}}
+            <div class="flex flex-row">
+                <div class="budg-cont-1 flex flex-col flex-none content-start justify-start pl-2">
+                    {{#each userCategory}}
+                        {{> users/budgetform-block}}
+                    {{/each}}
+                </div>
+                <div class="flex budg-cont-6">
+                    <img class="banner2" src="../../../assets/img/banner1.jfif">
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- BIG SUBMIT BUTTON -->
     <div id="saveBudget" class="text-right pt-3 mr-64">
