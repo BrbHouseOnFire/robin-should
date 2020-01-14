@@ -1,4 +1,4 @@
-<section class="bg-two h-screen">
+<section class=" h-screen">
     <!------------------ START NAV BAR ------------------>
     {{> users/navbar-block}}
 
@@ -7,7 +7,7 @@
     <!------------------ START PROFILE PAGE CONTENT ------------------>
 
     <!-- BANNER FOR PAGE -->
-        <section class="banner1 flex flex-row justify-center bg-gray-200 h-32 items-center">
+        <section class="banner1 flex flex-row justify-center bg-gray-300 h-32 items-center">
             <div class="h-24 w-40 text-center font-jockey text4">
                 <img src="https://img.icons8.com/dusk/64/000000/search.png" class="center">Select Categories
             </div>
@@ -20,19 +20,19 @@
         </section>
 
     <!-- CONTAINER FOR BUDGET CATEGORIES -->
-    <section class="flex flex-col bg-green-3 container1 ml-64 mr-64 mt-3">
+    <section class="flex flex-col container1 bg-gray-400 ml-64 mr-64 mt-3">
 
         <!-- HEADER FOR INSTRUCTION ON HOW TO USE THE PAGE -->
-        <div class="border-solid border-b-2 container2 border-black">WELCOME!
-            <span id="userName">{{personName}}</span>
+        <div class="flex bg-green-10 container2 items-end">
+            <span class="text5 font-heebo pl-4 align-text-bottom">Select your categories below, {{userName}}</span>
         </div>
 
         <!-- CONTAINER FOR THE TWO COLUMNS -->
-        <div class="flex flex-row bg-green-8">
+        <div class="flex flex-row">
 
             <!-- AREA FOR NEW BUTTONS AND EXISTING BUTTONS -->
             <div id="buttonZone" 
-                class="flex flex-wrap justify-start w-58 bg-white content-start budg-cont-1 pl-6 pt-6 pb-6 pr-6 border-black border-r-2">
+                class="flex flex-wrap justify-start w-58 content-start budg-cont-1 pl-6 pt-6 pb-6 pr-6 border-gray-700 border-r-2">
                 {{#each fullCategoryList.category}}
                 {{> users/category-block}}
                 {{/each}}
@@ -40,7 +40,7 @@
 
             <!-- AREA FOR THE SELECTED BUTTONS -->
             <div id="deleteZone"
-                class="bg-green-2 container3 budg-cont-2 bg-color-1 pl-6 pt-6 pb-6 pr-6 h-full">
+                class="container3 budg-cont-2 pl-6 pt-6 pb-6 pr-6 h-full">
                 {{#each userCategoryList.userCategory}}
                 {{> users/category-block}}
                 {{/each}}
