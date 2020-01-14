@@ -249,6 +249,22 @@ router.put("/api/users/:id", function (req, res) {
   //   }
   // });
 });
+router.put("/api/budget/:id", function (req, res) {
+  let condition = "id = " + req.params.id;
+
+  console.log("Route: /api/budget/" + req.params.id);
+
+  budget.update({
+    amount: req.body.amount
+  }, condition, function(result) {
+    if (result.changedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
 
 // ---------------- API DELETE ROUTES ----------------
 // delete a user by ID
