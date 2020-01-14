@@ -292,6 +292,7 @@ let orm = {
             totalBudget: totalBudget,
             excessBudget: excessBudget,
             excessExpenses: excessExpenses,
+            netBudget: netBudget,
             monthlyEarnings: monthlyEarnings,
             expectedSavings: expectedSavings,
             actualSavings: actualSavings
