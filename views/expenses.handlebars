@@ -20,10 +20,10 @@
         </section>
 
     <!----------------- CONTAINER FOR EXPENSES ----------------->
-    <section class="flex flex-col bg-white ml-64 mr-64 mt-3">
-      <div class="text1 pt-4 pl-6 pr-6 pb-4">
-        Expense for
-        <select id="exCategory">
+    <section class="flex flex-col container3 bg-gray-400 ml-64 mr-64 mt-3">
+      <div class="flex bg-green-10 container2 text7 pt-2 pb-2 pl-4">
+        Expense for:  
+        <select class="ml-2 text8" id="exCategory">
           <option value="">Category</option>
 
           <!----------------- PARTIAL HERE FOR LOOPING THROUGHT THE CATEGORIES ----------------->
@@ -31,29 +31,37 @@
           {{> users/expenseCat-block}}
           {{/each}}
         </select>
-        <form>
-          <input id="expenseAmount" type="number"></input>
-        </form>
+
       </div>
-      <button id="saveExpense" class="border-black border-2 p-2 m-1">
-        Save
-      </button>
+        <form class="m-3 flex content-start">
+          <input id="expenseAmount" type="number" class="expenseForm text8"></input>
+          <button id="saveExpense" class="saveExpense ml-5 text9 font-heebo">
+            Save Expense
+          </button>
+        </form>
+
     </section>
 
 
     <!----------------- CONTAINER FOR LIST OF ALREADY EXISTING EXPENSES ----------------->
-    <section class="flex bg-white flex-col ml-64 mr-64 mt-3 ml-6 mr-6">
-      <div class="text1 bg-gray-1 pl-6 border-b-2 border-black">
+    <section class="flex bg-gray-300 flex-col container5 ml-64 mr-64 mt-8 ml-6 mr-6">
+      <div class="text7 pl-6 border-b-2 border-black container6 bg-gray-600">
         Total Expenses
       </div>
       <!----------------- PARTIAL HERE FOR LOOPING THROUGH THE EXPENSES ----------------->
-      <div class="flex flex-col pt-2 pb-2 border-b-2 border-black">
+      <div class="flex flex-col pt-2 pb-2 container7">
         {{#each expense.expenses}}
         {{> users/totalExpense-block}}
         {{/each}}
       </div>
     </section>
 
+      <!-- BIG SUBMIT BUTTON -->
+    <div id="confirmExpenses" class="text-right pt-5 mr-64">
+        <button id="expenseSave" class="budg-button text2">
+            Finalize Expenses
+        </button>
+    </div>
   </section>
 </body>
 
