@@ -47,6 +47,21 @@ text-decoration: underline;
   color: darkslategray
   }
 
+.text7 {
+font-size: 4vh;
+color: white;
+}
+
+.text8 {
+  font-size: 4vh;
+  color: darkslategray;
+  }
+
+.text9 {
+  font-size: 2.5vh;
+  }
+
+
 .banner1 {
 padding-right: 20vw;
 padding-left: 20vw;
@@ -99,6 +114,19 @@ border: 2px solid #649dad;
 background-color: #c8f4de;
 border: 2px solid #649dad;
 }
+
+.expenseForm {
+  width: 80%;
+  height: 5vh;
+  box-sizing: border-box;
+  border: 2px solid #e2e8f0;
+  border-radius: 2px;
+  }
+
+.expenseForm:focus {
+  background-color: #c8f4de;
+  border: 2px solid #649dad;
+  }
 
 .profileButton {
 background-color: #649dad;
@@ -164,6 +192,19 @@ box-shadow: 1.75px 2px 3px .5px gray;
   box-shadow: 1.75px 2px 3px .5px gray;
   }
 
+.saveExpense {
+  height: 5vh;
+  width: 25vh;
+  background-color: #46717e;
+  color: white;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 1.75px 2px 3px .5px gray;
+  }
+
+.saveExpense:hover {
+  border: 3px solid #03414d;
+}
 .catButton:hover {
 border: 3px solid #03414d;
 }
@@ -185,11 +226,39 @@ border-top-left-radius: 22px;
 border-top-right-radius: 22px;
 }
 
+.container3 {
+  height: 20vh;
+  border-radius: 25px;
+  border: 1px solid #adadad;
+  box-shadow: 3px 4px 10px 1px #adadad;
+  }
+
 .container4 {
   height: 35vh;
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+.container5 {
+  height: 44vh;
+  border-radius: 25px;
+  border: 1px solid #adadad;
+  box-shadow: 3px 4px 10px 1px #adadad;
+  }
+
+.container6 {
+  height: 6.5vh;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+}
+
+.container7 {
+  height: 35vh;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .budg-cont-1 {

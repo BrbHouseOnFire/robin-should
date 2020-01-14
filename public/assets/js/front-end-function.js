@@ -41,12 +41,13 @@ $(document).ready(function(){
       dataType: "json",
       success: function(data) {
         console.log(data);
+        location.reload()
       },
       error: function(error) {
         console.log(error);
       }
     });
-    location.reload();
+    ;
   })
   $("#deleteZone").on("click", ".catButton", function() {
     // console.log(this.value);
@@ -81,6 +82,11 @@ $(document).ready(function(){
   // ------ ON CLICK TO SAVE BUDGET ------ //
   $("#saveBudget").on("click", "#saveButton", function() {
     window.location.href = `/budget/expenses/${userName}`;
+  })
+
+    // ------ ON CLICK TO SAVE EXPENSES ------ //
+  $("#confirmExpenses").on("click", "#expenseSave", function() {
+    window.location.href = `/lifestyle/1/${userName}`;
   })
 
 
