@@ -102,7 +102,7 @@ router.get("/budget/expenses/:username", (req, res) => {
       expense: data
     };
     expenseList.userName = username;
-    // console.log(expenseList);
+    console.log(expenseList);
     // render page with passed in budget categories
     res.render("expenses", expenseList);
   });
