@@ -3,7 +3,7 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function(){
 
-  // ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
+// ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
   let htmlPath = window.location.href;
   let userName = htmlPath.substring(htmlPath.lastIndexOf('/') + 1);
   // ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
@@ -11,32 +11,57 @@ $(document).ready(function(){
 
 
   // ------ NAV BAR ON CLICKS ------ //
-    $("#home").click(function() {
-      window.location.href = `/lifestyle/1/${userName}`;
-      console.log("home");
-    })
+  $("#home").click(function() {
+    window.location.href = `/lifestyle/1/${userName}`;
+    console.log("home");
+  })
 
-    $("#budget").click(function() {
-      window.location.href = `/budget/set/1/${userName}`;
-    })
+  $("#budget").click(function() {
+    window.location.href = `/budget/set/1/${userName}`;
+  })
 
-    $("#expenses").click(function() {
-      window.location.href = `/budget/expenses/${userName}`;
-    })
+  $("#expenses").click(function() {
+    window.location.href = `/budget/expenses/${userName}`;
+  })
 
   // ------ ON CLICK TO SECOND BUDGET PAGE ------ //
-    $("#confirmCategories").on("click", "#budgetSave", function() {
-      window.location.href = `/budget/set/2/${userName}`;
-    })
+  $("#confirmCategories").on("click", "#budgetSave", function() {
+    window.location.href = `/budget/set/2/${userName}`;
+  })
 
 
   // ------ ON CLICK TO SAVE BUDGET ------ //
-    $("#saveBudget").on("click", "#saveButton", function() {
-      window.location.href = `/lifestyle/1/${userName}`;
-    })
+  $("#saveBudget").on("click", "#saveButton", function() {
+    window.location.href = `/lifestyle/1/${userName}`;
+  })
 
 
+    // ------ CREATE NEW PROFILE ------ //
+  $("#createProfile").click(function() {
+    console.log("Create Profile");
+
+    let user = $("#userName").val();
+    let data = { userName: user };
+    let jsonData = JSON.stringify(data);
+    $.ajax({
+      url: "/api/add/user",
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      data: jsonData,
+      dataType: "json",
+      success: function(data) {
+        console.log(data);
+        },
+      error: function(error) {
+        console.log(error);
+        }
+    });
+    window.location.href = `/budget/set/1/${user}`;
   });
+
+});
+
+
 
 $(function() {
   let profileName = document.getElementById("userName");
@@ -67,31 +92,8 @@ $(function() {
   //   window.location.href = "/budget/expenses/:username";
   // });
 
-  $("#createProfile").click(function() {
-    console.log("Create Profile");
 
-    let user = $("#userName").val();
-    let data = { userName: user };
-    let jsonData = JSON.stringify(data);
-    $.ajax({
-      url: "/api/add/user",
-      type: "POST",
-      contentType: "application/json; charset=utf-8",
-      data: jsonData,
-      dataType: "json",
-      success: function(data) {
-        console.log(data);
-      },
-      error: function(error) {
-        console.log(error);
-      }
-    });
-  });
 
-  $("#createProfile").click(function() {
-    window.location.href = "/budget/set/1/:username";
-    console.log("Open Profile Budget");
-  });
 
   var selectedCategory = "";
 
