@@ -46,13 +46,11 @@
             </div>
 
             <!-- CONTAINER FLEX BOX TO HOLD USERS -->
-            <div class="text-heebo pl-8 pr-8 pt-4 ">
+            <div id="existUser" class="text-heebo pl-8 pr-8 pt-4 container4">
 
                 <!-- BUTTONS TO PROFILES REPLACE WITH HANDLEBARS LOOPING BASED ON DATABASE -->
                 {{#each user}}
-                <button id={{id}} class="profBudget profButtons text-heebo text-heebo mt-2 mb-2">
-                    {{username}}
-                </button>
+                <button id="profile" class="profBudget profButtons text-heebo text-heebo mt-2 mb-2">{{username}}</button>
                 {{/each}}
                 <!--make a div with user's information-->
             </div>

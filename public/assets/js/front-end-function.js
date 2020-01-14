@@ -9,7 +9,6 @@ $(document).ready(function(){
   // ------ HTML PATH TRIMMING TO LEAVE ONLY THE CURRENT USERNAME ------ //
 
 
-
   // ------ NAV BAR ON CLICKS ------ //
   $("#home").click(function() {
     window.location.href = `/lifestyle/1/${userName}`;
@@ -23,6 +22,7 @@ $(document).ready(function(){
   $("#expenses").click(function() {
     window.location.href = `/budget/expenses/${userName}`;
   })
+
 
   // ------ ON CLICK TO SECOND BUDGET PAGE ------ //
   $("#confirmCategories").on("click", "#budgetSave", function() {
@@ -59,6 +59,13 @@ $(document).ready(function(){
     window.location.href = `/budget/set/1/${user}`;
   });
 
+
+    // ------ ALREADY CREATED PROFILES ------ //
+  $(this).on("click", "#profile", function() {
+    let returnUser = $(this).text();
+    window.location.href = `/lifestyle/1/${returnUser}`;
+    console.log(returnUser);
+  })
 });
 
 
