@@ -32,7 +32,7 @@ $(document).ready(function(){
 
   // ------ ON CLICK TO SAVE BUDGET ------ //
   $("#saveBudget").on("click", "#saveButton", function() {
-    window.location.href = `/lifestyle/1/${userName}`;
+    window.location.href = `/budget/expenses/${userName}`;
   })
 
 
