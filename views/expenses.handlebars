@@ -7,9 +7,17 @@
     <!------------------ START PROFILE PAGE CONTENT ------------------>
 
     <!----------------- BANNER FOR PAGE ----------------->
-    <section class="bg-gray-100 h-32 text-center align-middle content-center">
-      This is a banner for a picture
-    </section>
+        <section class="banner1 flex flex-row justify-center bg-gray-200 h-32 items-center">
+            <div class="h-24 w-40 text-center font-jockey text2 banner-font2">
+                <img src="https://img.icons8.com/dusk/64/000000/search.png" class="center">Select Categories
+            </div>
+            <div class="h-24 w-40 text-center font-jockey text2 banner-font2">
+                <img src="https://img.icons8.com/dusk/64/000000/calendar.png" class="center">Budget Amounts
+            </div>
+            <div class="h-24 w-40 text-center font-jockey text4">
+                <img src="https://img.icons8.com/dusk/64/000000/checked.png" class="center">Save Expenses
+            </div>
+        </section>
 
     <!----------------- CONTAINER FOR EXPENSES ----------------->
     <section class="flex flex-col bg-white ml-64 mr-64 mt-3">
@@ -19,7 +27,7 @@
           <option value="">Category</option>
 
           <!----------------- PARTIAL HERE FOR LOOPING THROUGHT THE CATEGORIES ----------------->
-          {{#each expense}}
+          {{#each expense.categories}}
           {{> users/expenseCat-block}}
           {{/each}}
         </select>
@@ -40,7 +48,7 @@
       </div>
       <!----------------- PARTIAL HERE FOR LOOPING THROUGH THE EXPENSES ----------------->
       <div class="flex flex-col pt-2 pb-2 border-b-2 border-black">
-        {{#each expense}}
+        {{#each expense.expenses}}
         {{> users/totalExpense-block}}
         {{/each}}
       </div>
