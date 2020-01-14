@@ -187,7 +187,7 @@ let orm = {
     select distinct e.amount, c.name, c.id from expenses_actual e
     inner join categories c on e.category_id = c.id
     where e.user = ?;`;
-    let queryString2 = `select distinct c.name, b.id from expenses_budgeted b
+    let queryString2 = `select distinct c.name, c.id from expenses_budgeted b
     inner join categories c on b.category_id = c.id
     where b.user = ?;`;
     // grab expenses
