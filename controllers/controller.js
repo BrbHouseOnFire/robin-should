@@ -64,7 +64,7 @@ router.get("/budget/set/1/:username", (req, res) => {
       let fullObj = {
         fullCategoryList: categoryObj,
         userCategoryList: budgetCategories,
-        user: username
+        userName: username
       };
       console.log(fullObj);
       // categoryObj.personName = username;
@@ -109,12 +109,12 @@ router.get("/budget/expenses/:username", (req, res) => {
 router.get("/lifestyle/1/:username", (req, res) => {
   let username = req.params.username;
   user.getResults(username, (data) => {
-    
+    let renderObject = data;
+    renderObject.userName = username;
     // console.log("user.getResults data:");
     // console.log(data);
     // console.log("----------");
-
-    res.render("making-money", data);
+    res.render("making-money", renderObject);
   });
 });
 
@@ -132,6 +132,7 @@ router.get("/api/test/:valueone/:valuetwo/:valuethree", (req, res) => {
     return res.json(data);
   });
 });
+
 // ---------------- API POST ROUTES ----------------
 // create a new category
 router.post("/api/add/category", function (req, res) {
@@ -152,7 +153,7 @@ router.post("/api/add/category", function (req, res) {
 router.post("/api/add/expense", function (req, res) {
   console.log(req.body);
   // Add new user expenses
-  var userExpenses = req.body;
+  let userExpenses = req.body;
   expense.create(
     ["user", "amount", "category_id"],
     [userExpenses.user, userExpenses.amount, userExpenses.category_id],
@@ -187,7 +188,7 @@ router.get("/api/users", (req, res) => {
   });
 });
 // api route to pull a user's budgeted categories
-router.get("/api/:username/budget", (req, res) => {
+router.get("/api/budget/:username", (req, res) => {
   let username = req.params.username;
   console.log(`route: api/${username}/budget`);
   category.userBudget(username, function (data) {
