@@ -141,6 +141,15 @@ border-radius: 25px;
 border: 3px solid #03414d;
 }
 
+.navbarButtons {
+  width: 12vh;
+  }
+
+.navbarButtons:hover {
+  text-decoration: underline;
+  color: black;
+  }
+
 .button-border:hover {
 border-color: #649dad;
 }
