@@ -24,6 +24,14 @@ $(document).ready(function(){
   })
 
 
+  // ------ FIRST BUDGET PAGE ------ //
+  $(".catButton").on("click", "#buttonZone", function() {
+    console.log(this);
+  })
+  // $(".catButton").click(function() {
+  //   console.log(this);
+  // })
+
   // ------ ON CLICK TO SECOND BUDGET PAGE ------ //
   $("#confirmCategories").on("click", "#budgetSave", function() {
     window.location.href = `/budget/set/2/${userName}`;
